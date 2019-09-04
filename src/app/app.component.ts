@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -10,4 +11,5 @@ import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 export class AppComponent {
   faInfoCircle = faInfoCircle;
   faUserCircle = faUserCircle;
+  faChevronDown = faChevronDown;
 }
