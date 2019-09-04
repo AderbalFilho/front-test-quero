@@ -1,1 +1,31 @@
+<div class="topnav">
+  <a href="#">
+    <div class="topnav__left">
+      <fa-icon [icon]="faInfoCircle"></fa-icon>
+      Ajuda
+    </div>
+  </a>
+  <a href="#"><img src="assets/img/logo-querobolsa.svg" alt="Logo Quero Bolsa" /></a>
+  <a href="#">
+    <div class="topnav__right">
+      <fa-icon [icon]="faUserCircle"></fa-icon>
+      Conta
+    </div>
+  </a>
+</div>
+<div class="topmenu">
+  <p>Minha conta</p>
+  <div class="dropdown">
+    <button class="dropdown__button">
+      <div>
+        Menu
+        <fa-icon [icon]="faChevronDown"></fa-icon>
+      </div>
+    </button>
+    <div class="dropdown__content">
+      <a href="#">Pré-matrícula</a>
+      <a href="#">Bolsas favoritas</a>
+    </div>
+  </div>
+</div>
 <router-outlet></router-outlet>
