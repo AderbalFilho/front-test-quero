@@ -86,3 +86,30 @@ $modal-overlay: #1F2D30 // opacity 88%
 
     .dropdown:hover .dropdown__button
       background-color: $main-blue
+
+  footer
+    %footer__item
+      align-items: center
+      background-color: $secondary-blue
+      display: flex
+      flex-direction: column
+      font-size: 12px
+      font-weight: bold
+      margin: 10px 0 10px 0
+
+    background-color: $main-blue
+    color: #FFF
+    font-size: 14px
+    font-weight: bold
+    text-align: center
+    fa-icon
+      font-size: 20px
+    h4
+      padding: 20px 0
+    .footer__chat
+      @extend %footer__item
+    .footer__email
+      @extend %footer__item
+    .footer__help
+      @extend %footer__item
+
