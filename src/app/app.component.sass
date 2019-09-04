@@ -1,0 +1,41 @@
+// Constants
+$main-blue: #18ACC4
+$secondary-blue: #007A8D
+$main-yellow: #FDCB13
+$secondary-yellow: #DE9E1F
+$green: #0FA866
+$text-black: #1F2D30
+$background-grey: #FBFBFB
+$modal-overlay: #1F2D30 // opacity 88%
+
+@media (max-width: 576px)
+  $border-grey: 1px solid lightgrey
+
+  %topnav__item
+    align-items: center
+    display: flex
+    flex-direction: column
+    padding: 0 10px
+
+  .topnav
+    display: flex
+    justify-content: space-between
+    a
+      color: $secondary-blue
+      font-size: 12px
+      font-weight: bold
+      margin: 0 0 10px 0
+      text-decoration: none
+      fa-icon
+        font-size: 20px
+      div
+        @extend %topnav__item
+        flex: 1
+      img
+        @extend %topnav__item
+        flex: 3
+        height: 90%
+      .topnav__left
+        border-right: $border-grey
+      .topnav__right
+        border-left: $border-grey
