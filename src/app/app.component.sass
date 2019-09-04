@@ -47,7 +47,6 @@ $modal-overlay: #1F2D30 // opacity 88%
     @extend %flex-between
     background-color: $main-blue
     color: #FFF
-    font-family: Arial, Helvetica, sans-serif
     font-weight: bold
     padding: 0 15px
     .dropdown
@@ -86,3 +85,55 @@ $modal-overlay: #1F2D30 // opacity 88%
 
     .dropdown:hover .dropdown__button
       background-color: $main-blue
+
+  footer
+    %footer__item
+      align-items: center
+      background-color: $secondary-blue
+      display: flex
+      flex: 1
+      flex-direction: column
+      font-size: 12px
+      font-weight: bold
+      margin: 2px 2px 0 0
+      padding: 10px 0
+
+    background-color: $main-blue
+    color: #FFF
+    font-size: 14px
+    font-weight: bold
+    text-align: center
+    fa-icon
+      font-size: 20px
+      margin-bottom: 5px
+    h4
+      margin: 0
+      padding: 20px 0
+    .footer__first-item
+      background-color: $secondary-blue
+      display: flex
+      flex-direction: row
+      padding: 10px 0
+      fa-icon
+        align-items: center
+        display: flex
+        flex: 1
+        justify-content: flex-end
+        margin-bottom: 0
+        margin-right: 10px
+      .footer__first-item__phone
+        display: flex
+        flex: 3
+        flex-direction: column
+        text-align: left
+        p
+          margin: 0
+          padding: 0
+    .footer__second-item
+      display: flex
+      flex-direction: row
+    .footer__subitem
+      @extend %footer__item
+    .footer__subitem--last
+      @extend %footer__item
+      margin: 2px 0 0 0
