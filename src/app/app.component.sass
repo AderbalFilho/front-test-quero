@@ -92,10 +92,12 @@ $modal-overlay: #1F2D30 // opacity 88%
       align-items: center
       background-color: $secondary-blue
       display: flex
+      flex: 1
       flex-direction: column
       font-size: 12px
       font-weight: bold
-      margin: 10px 0 10px 0
+      margin: 2px 2px 0 0
+      padding: 10px 0
 
     background-color: $main-blue
     color: #FFF
@@ -104,12 +106,35 @@ $modal-overlay: #1F2D30 // opacity 88%
     text-align: center
     fa-icon
       font-size: 20px
+      margin-bottom: 5px
     h4
+      margin: 0
       padding: 20px 0
-    .footer__chat
+    .footer__first-item
+      background-color: $secondary-blue
+      display: flex
+      flex-direction: row
+      padding: 10px 0
+      fa-icon
+        align-items: center
+        display: flex
+        flex: 1
+        justify-content: flex-end
+        margin-bottom: 0
+        margin-right: 10px
+      .footer__first-item__phone
+        display: flex
+        flex: 3
+        flex-direction: column
+        text-align: left
+        p
+          margin: 0
+          padding: 0
+    .footer__second-item
+      display: flex
+      flex-direction: row
+    .footer__subitem
       @extend %footer__item
-    .footer__email
+    .footer__subitem--last
       @extend %footer__item
-    .footer__help
-      @extend %footer__item
-
+      margin: 2px 0 0 0
