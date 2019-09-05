@@ -9,13 +9,13 @@
     com as melhores ofertas disponíveis.
   </p>
   <div class="btn-group">
-    <button class="btn-group--first" [ngClass]="{'button__active': pressed === 1}" (click)="changePressed(1)">
+    <button class="btn-group--first" [ngClass]="{'button__active': semesterChoice === 1}" (click)="changeSemester(1)">
       Todos os semestres
     </button>
-    <button [ngClass]="{'button__active': pressed === 2}" (click)="changePressed(2)">
+    <button [ngClass]="{'button__active': semesterChoice === 2}" (click)="changeSemester(2)">
       2º semestre de 2019
     </button>
-    <button class="btn-group--last" [ngClass]="{'button__active': pressed === 3}" (click)="changePressed(3)">
+    <button class="btn-group--last" [ngClass]="{'button__active': semesterChoice === 3}" (click)="changeSemester(3)">
       1º semestre de 2020
     </button>
   </div>

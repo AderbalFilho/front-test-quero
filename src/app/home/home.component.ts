@@ -8,8 +8,8 @@ import { faChevronLeft, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./home.component.sass']
 })
 export class HomeComponent implements OnInit {
-  modalVisibility: string = 'none' as string;
-  pressed: number = 1 as number;
+  modalVisibility: 'none' | 'block' = 'none';
+  semesterChoice: 1 | 2 | 3 = 1;
 
   faChevronLeft = faChevronLeft;
   faPlusCircle = faPlusCircle;
@@ -19,8 +19,8 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  changePressed(n: number) {
-    this.pressed = n;
+  changeSemester(semester: 1 | 2 | 3) {
+    this.semesterChoice = semester;
   }
 
   changeModalVisibility() {
