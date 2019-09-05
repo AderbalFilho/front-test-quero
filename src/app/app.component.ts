@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
-import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
-import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import { faComments } from '@fortawesome/free-solid-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+
+import {
+  faInfoCircle,
+  faUserCircle,
+  faChevronDown,
+  faHeart,
+  faComments,
+  faEnvelope
+} from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
 @Component({

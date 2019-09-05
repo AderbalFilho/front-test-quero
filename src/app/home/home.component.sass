@@ -1,0 +1,77 @@
+// Constants
+$main-blue: #18ACC4
+$secondary-blue: #007A8D
+$main-yellow: #FDCB13
+$secondary-yellow: #DE9E1F
+$green: #0FA866
+$text-black: #1F2D30
+$background-grey: #FBFBFB
+$modal-overlay: #1F2D30 // opacity 88%
+
+.home-container
+  align-items: flex-start
+  display: flex
+  flex-direction: column
+  margin: 0 15px
+  padding-bottom: 100px
+  h2
+    color: $text-black
+    margin: 5px 0
+  p
+    color: $text-black
+    margin: 0 0 10px 0
+    padding: 0
+  fa-icon
+    margin-right: 5px
+
+  .add-scholarship
+    align-items: center
+    box-shadow: 0 3px 10px 0 lightgrey
+    color: $text-black
+    display: flex
+    flex-direction: column
+    margin-bottom: 20px
+    padding: 10px 0
+    text-align: center
+    width: 100%
+    .add-scholarship__items
+      width: 50%
+      div
+        color: $main-blue
+        font-size: 60px
+        padding: 10px
+      h3
+        margin: 5px
+        padding: 0
+      p
+        font-size: 12px
+
+  .back-button
+    color: $secondary-blue
+    font-size: 14px
+    font-weight: bold
+    margin: 15px 0
+    text-decoration: none
+
+  .btn-group
+    margin: 10px 0
+    button
+      background-color: transparent
+      border: 1px solid $secondary-blue
+      color: $secondary-blue
+      cursor: pointer
+      font-weight: bold
+      padding: 10px 0
+      width: 100%
+    button:hover
+      background-color: $secondary-blue
+      color: #FFF
+    .button__active
+      background-color: $secondary-blue
+      color: #FFF
+    .btn-group--first
+      border-bottom: none
+      border-radius: 5px 5px 0 0
+    .btn-group--last
+      border-radius: 0 0 5px 5px
+      border-top: none

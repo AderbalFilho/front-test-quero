@@ -1,0 +1,31 @@
+<div class="home-container">
+  <a href="#" class="back-button">
+    <fa-icon [icon]="faChevronLeft"></fa-icon>
+    Minha conta
+  </a>
+  <h2>Bolsas favoritas</h2>
+  <p>
+    Adicione bolsas de cursos e faculdades do seu interesse e receba atualizações
+    com as melhores ofertas disponíveis.
+  </p>
+  <div class="btn-group">
+    <button class="btn-group--first" [ngClass]="{'button__active': pressed === 1}" (click)="changePressed(1)">
+      Todos os semestres
+    </button>
+    <button [ngClass]="{'button__active': pressed === 2}" (click)="changePressed(2)">
+      2º semestre de 2019
+    </button>
+    <button class="btn-group--last" [ngClass]="{'button__active': pressed === 3}" (click)="changePressed(3)">
+      1º semestre de 2020
+    </button>
+  </div>
+  <div class="add-scholarship">
+    <div class="add-scholarship__items">
+      <div>
+        <fa-icon [icon]="faPlusCircle"></fa-icon>
+      </div>
+      <h3>Adicionar bolsa</h3>
+      <p>Clique para adicionar bolsas de cursos do seu interesse</p>
+    </div>
+  </div>
+</div>
