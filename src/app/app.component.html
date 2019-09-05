@@ -1,57 +1,63 @@
-<div class="topnav">
-  <a href="#">
-    <div class="topnav__left">
-      <fa-icon [icon]="faInfoCircle"></fa-icon>
-      Ajuda
-    </div>
-  </a>
-  <a href="#"><img src="assets/img/logo-querobolsa.svg" alt="Logo Quero Bolsa" /></a>
-  <a href="#">
-    <div class="topnav__right">
-      <fa-icon [icon]="faUserCircle"></fa-icon>
-      Conta
-    </div>
-  </a>
-</div>
-<div class="topmenu">
-  <p>Minha conta</p>
-  <div class="dropdown">
-    <button class="dropdown__button">
-      <div>
-        Menu
-        <fa-icon [icon]="faChevronDown"></fa-icon>
+<div class="header-footer">
+  <div>
+    <header>
+      <div class="topnav">
+        <a href="#">
+          <div class="topnav__left">
+            <fa-icon [icon]="faInfoCircle"></fa-icon>
+            Ajuda
+          </div>
+        </a>
+        <a href="#"><img src="assets/img/logo-querobolsa.svg" alt="Logo Quero Bolsa" /></a>
+        <a href="#">
+          <div class="topnav__right">
+            <fa-icon [icon]="faUserCircle"></fa-icon>
+            Conta
+          </div>
+        </a>
       </div>
-    </button>
-    <div class="dropdown__content">
-      <a href="#">Pré-matrícula</a>
-      <a href="#">Bolsas favoritas</a>
-    </div>
+      <div class="topmenu">
+        <p>Minha conta</p>
+        <div class="dropdown">
+          <button class="dropdown__button">
+            <div>
+              Menu
+              <fa-icon [icon]="faChevronDown"></fa-icon>
+            </div>
+          </button>
+          <div class="dropdown__content">
+            <a href="#">Pré-matrícula</a>
+            <a href="#">Bolsas favoritas</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <router-outlet></router-outlet>
   </div>
+  <footer>
+    <div class="footer__items">
+      <div class="footer__first-item">
+        <fa-icon [icon]="faWhatsapp"></fa-icon>
+        <div class="footer__first-item__phone">
+          <p>0800 123 2222</p>
+          <p>Segunda a sexta de 8h às 22h</p>
+        </div>
+      </div>
+      <div class="footer__second-item">
+        <div class="footer__subitem">
+          <fa-icon [icon]="faComments"></fa-icon>
+          Chat
+        </div>
+        <div class="footer__subitem">
+          <fa-icon [icon]="faEnvelope"></fa-icon>
+          E-mail
+        </div>
+        <div class="footer__subitem--last">
+          <fa-icon [icon]="faInfoCircle"></fa-icon>
+          Ajuda
+        </div>
+      </div>
+    </div>
+    <h4>Feito com <fa-icon [icon]="faHeart"></fa-icon> pela Quero Educação</h4>
+  </footer>
 </div>
-<router-outlet></router-outlet>
-<footer>
-  <div class="footer__items">
-    <div class="footer__first-item">
-      <fa-icon [icon]="faWhatsapp"></fa-icon>
-      <div class="footer__first-item__phone">
-        <p>0800 123 2222</p>
-        <p>Segunda a sexta de 8h às 22h</p>
-      </div>
-    </div>
-    <div class="footer__second-item">
-      <div class="footer__subitem">
-        <fa-icon [icon]="faComments"></fa-icon>
-        Chat
-      </div>
-      <div class="footer__subitem">
-        <fa-icon [icon]="faEnvelope"></fa-icon>
-        E-mail
-      </div>
-      <div class="footer__subitem--last">
-        <fa-icon [icon]="faInfoCircle"></fa-icon>
-        Ajuda
-      </div>
-    </div>
-  </div>
-  <h4>Feito com <fa-icon [icon]="faHeart"></fa-icon> pela Quero Educação</h4>
-</footer>
