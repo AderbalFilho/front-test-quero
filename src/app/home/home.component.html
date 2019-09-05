@@ -30,4 +30,10 @@
   </div>
 </div>
 
-<app-modal [ngStyle]="{'display': modalVisibility}" (click)="changeModalVisibility()"></app-modal>
+<app-modal [modalBody]="modalBody" [ngStyle]="{'display': modalVisibility}" (closeModal)="changeModalVisibility()">
+</app-modal>
+
+<ng-template #modalBody>
+  <h3>Adicionar bolsa</h3>
+  <p>Filtre e adicione as bolsas de seu interesse.</p>
+</ng-template>

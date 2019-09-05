@@ -1,4 +1,10 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  Input,
+  TemplateRef,
+  Output,
+  EventEmitter
+} from '@angular/core';
 
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
@@ -8,5 +14,12 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./modal.component.sass']
 })
 export class ModalComponent {
+  @Input() modalBody: TemplateRef<any>;
+  @Output() closeModal = new EventEmitter();
+
   faTimes = faTimes;
+
+  close($event) {
+    this.closeModal.emit($event);
+  }
 }
