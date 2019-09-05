@@ -6,7 +6,7 @@ $secondary-yellow: #DE9E1F
 $green: #0FA866
 $text-black: #1F2D30
 $background-grey: #FBFBFB
-$modal-overlay: #1F2D30 // opacity 88%
+$modal-overlay: #1F2D30E0 // #1F2D30 opacity 88%
 
 @media (max-width: 576px)
   $border-grey: 1px solid lightgrey
@@ -143,3 +143,41 @@ $modal-overlay: #1F2D30 // opacity 88%
     .footer__subitem--last
       @extend %footer__item
       margin: 2px 0 0 0
+
+.modal
+  background-color: $modal-overlay
+  display: none // Hidden by default
+  left: 0
+  height: 100% // Full height
+  overflow: auto // Enable scroll if needed
+  position: fixed // Stay in place
+  top: 0
+  width: 100% // Full width
+  z-index: 1 // Sit on top
+
+  .modal__body
+    padding: 2px 16px
+
+  .modal__close
+    color: #FFF
+    float: right
+    font-size: 28px
+    font-weight: bold
+    margin: 10px 15px 
+
+  .modal__close:hover,
+  .modal__close:focus
+    color: $text-black
+    cursor: pointer
+    text-decoration: none
+
+  .modal__content
+    animation-duration: 0.4s
+    animation-name: animatetop
+    background-color: #fefefe
+    margin: 50px auto auto auto
+    padding: 0
+    position: relative
+    width: 100% // Full width
+    -webkit-animation-duration: 0.4s
+    -webkit-animation-name: animatetop

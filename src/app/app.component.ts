@@ -6,7 +6,8 @@ import {
   faChevronDown,
   faHeart,
   faComments,
-  faEnvelope
+  faEnvelope,
+  faTimes
 } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
@@ -16,6 +17,8 @@ import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
+  modalVisibility: string = 'none'
+
   faInfoCircle = faInfoCircle;
   faUserCircle = faUserCircle;
   faChevronDown = faChevronDown;
@@ -23,4 +26,9 @@ export class AppComponent {
   faComments = faComments;
   faEnvelope = faEnvelope;
   faWhatsapp = faWhatsapp;
+  faTimes = faTimes;
+
+  changeModalVisibility() {
+    this.modalVisibility = 'block';
+  }
 }
