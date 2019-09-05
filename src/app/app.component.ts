@@ -11,8 +11,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
-import { ModalComponent } from './shared/modal/modal.component';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -27,10 +25,4 @@ export class AppComponent {
   faEnvelope = faEnvelope;
   faWhatsapp = faWhatsapp;
   faTimes = faTimes;
-
-  constructor( private modalComponent: ModalComponent ) { }
-
-  changeModalVisibility() {
-    this.modalComponent.changeModalVisibility( );
-  }
 }

@@ -8,12 +8,5 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./modal.component.sass']
 })
 export class ModalComponent {
-  modalVisibility: string = 'none'
-
   faTimes = faTimes;
-
-  changeModalVisibility() {
-    console.log('get in');
-    this.modalVisibility = 'block';
-  }
 }

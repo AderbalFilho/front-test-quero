@@ -22,10 +22,12 @@
   <div class="add-scholarship">
     <div class="add-scholarship__items">
       <div>
-        <fa-icon [icon]="faPlusCircle"></fa-icon>
+        <fa-icon [icon]="faPlusCircle" (click)="changeModalVisibility()"></fa-icon>
       </div>
       <h3>Adicionar bolsa</h3>
       <p>Clique para adicionar bolsas de cursos do seu interesse</p>
     </div>
   </div>
 </div>
+
+<app-modal [ngStyle]="{'display': modalVisibility}" (click)="changeModalVisibility()"></app-modal>
