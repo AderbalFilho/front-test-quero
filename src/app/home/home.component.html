@@ -42,5 +42,15 @@
   <app-input-select [label]="'SELECIONE O CURSO DE SUA PREFERÊNCIA'" [name]="'city'"
     [options]="[{value: 'string', label: 'string'}, {value: 'string', label: 'string'}]">
   </app-input-select>
-  <app-input-checkbox [form]="form" key="studyModality"></app-input-checkbox>
+  <label class="label-title">COMO VOCÊ QUER ESTUDAR?</label>
+  <div class="study-modality">
+    <div class="study-modality__first">
+      <app-input-checkbox [form]="form" key="studyModalityPresential"></app-input-checkbox>
+      <label>Presencial</label>
+    </div>
+    <div class="study-modality__last">
+      <app-input-checkbox [form]="form" key="studyModalityDistance"></app-input-checkbox>
+      <label>A distância</label>
+    </div>
+  </div>
 </ng-template>

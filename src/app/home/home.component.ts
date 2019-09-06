@@ -21,7 +21,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-      studyModality: [ true, [ ] ],
+      studyModalityPresential: [ true, [ ] ],
+      studyModalityDistance: [ true, [ ] ],
     });
   }
 

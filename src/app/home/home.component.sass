@@ -79,3 +79,25 @@ $modal-overlay: #1F2D30 // opacity 88%
 app-input-select
   display: flex
   flex-direction: column
+  margin-bottom: 20px
+
+.label-title
+  font-size: 14px
+  font-weight: bold
+
+%flex-row
+  display: flex
+  flex-direction: row
+
+.study-modality
+  @extend %flex-row
+  margin: 20px 0
+  .study-modality__first
+    @extend %flex-row
+    label
+      margin-left: 5px
+  .study-modality__last
+    @extend %flex-row
+    margin-left: 20px
+    label
+      margin-left: 5px
