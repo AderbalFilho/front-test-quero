@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { faChevronLeft, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -10,13 +11,18 @@ import { faChevronLeft, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 export class HomeComponent implements OnInit {
   modalVisibility: 'none' | 'block' = 'none';
   semesterChoice: 1 | 2 | 3 = 1;
+  form: FormGroup;
 
   faChevronLeft = faChevronLeft;
   faPlusCircle = faPlusCircle;
 
-  constructor() { }
+  constructor(private fb: FormBuilder) {
+  }
 
   ngOnInit() {
+    this.form = this.fb.group({
+      studyModality: [ true, [ ] ],
+    });
   }
 
   changeSemester(semester: 1 | 2 | 3) {
