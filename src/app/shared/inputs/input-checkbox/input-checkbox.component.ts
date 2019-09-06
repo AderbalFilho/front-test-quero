@@ -8,11 +8,11 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./input-checkbox.component.sass']
 })
 export class InputCheckboxComponent {
-  clicked: boolean = false as boolean;
+  checked: boolean = false as boolean;
 
   faCheck = faCheck;
 
   click() {
-    this.clicked = !this.clicked;
+    this.checked = !this.checked;
   }
 }
