@@ -1,3 +1,4 @@
 <label *ngIf="label">{{label}}</label>
-<ng-select class="custom" [items]="options" bindLabel="label" bindValue="value" autofocus [(ngModel)]="selectedItem">
+<ng-select class="custom" [items]="options" [clearable]="false" bindLabel="label" bindValue="value" autofocus
+  [(ngModel)]="selectedItem">
 </ng-select>

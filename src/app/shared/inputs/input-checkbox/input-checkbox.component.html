@@ -1,0 +1,3 @@
+<div class="checkbox" [ngClass]="{'not-clicked': !clicked, 'clicked': clicked}" (click)="click()">
+  <fa-icon [icon]="faCheck" [ngClass]="{'not-clicked--icon': !clicked, 'clicked--icon': clicked}"></fa-icon>
+</div>

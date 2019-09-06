@@ -8,6 +8,7 @@ import { ModalComponent } from './modal/modal.component';
 import { InputSelectComponent } from './inputs/input-select/input-select.component';
 
 import { NgSelectModule } from '@ng-select/ng-select';
+import { InputCheckboxComponent } from './inputs/input-checkbox/input-checkbox.component';
 
 @NgModule({
   imports: [
@@ -18,17 +19,20 @@ import { NgSelectModule } from '@ng-select/ng-select';
   ],
   declarations: [
     ModalComponent,
-    InputSelectComponent
+    InputSelectComponent,
+    InputCheckboxComponent
   ],
   providers: [
     ModalComponent,
-    InputSelectComponent
+    InputSelectComponent,
+    InputCheckboxComponent
   ],
   exports: [
     CommonModule,
     FormsModule,
     ModalComponent,
-    InputSelectComponent
+    InputSelectComponent,
+    InputCheckboxComponent
   ]
 })
 export class SharedModule { }
