@@ -36,4 +36,10 @@
 <ng-template #modalBody>
   <h3>Adicionar bolsa</h3>
   <p>Filtre e adicione as bolsas de seu interesse.</p>
+  <app-input-select [label]="'SELECIONE SUA CIDADE'" [name]="'city'"
+    [options]="[{value: 'string', label: 'string'}, {value: 'string', label: 'string'}]">
+  </app-input-select>
+  <app-input-select [label]="'SELECIONE O CURSO DE SUA PREFERÊNCIA'" [name]="'city'"
+    [options]="[{value: 'string', label: 'string'}, {value: 'string', label: 'string'}]">
+  </app-input-select>
 </ng-template>
