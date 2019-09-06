@@ -11,6 +11,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class HomeComponent implements OnInit {
   modalVisibility: 'none' | 'block' = 'none';
   semesterChoice: 1 | 2 | 3 = 1;
+  options: Array<{value: string, label: string}> =  [{value: 'string', label: 'string'}, {value: 'string2', label: 'string2'}]
   form: FormGroup;
 
   faChevronLeft = faChevronLeft;
@@ -21,6 +22,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
+      city: [ this.options, [ ] ],
+      course: [ this.options, [ ] ],
       studyModalityPresential: [ true, [ ] ],
       studyModalityDistance: [ true, [ ] ],
     });
