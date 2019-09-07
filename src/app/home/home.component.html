@@ -54,4 +54,10 @@
   <app-input-range label="ATÉ QUANTO PODE PAGAR?" [form]="form" key="paymentRange" prefixValue="R$" [minRange]="100"
     [maxRange]="10000">
   </app-input-range>
+  <div class="flex-between">
+    <span>Resultado:</span>
+    <span>Ordenar por</span>
+  </div>
+  <app-input-select style="display: flex; width: 100%;align-items: flex-end" name="order" [styles]="styles"
+    selectedItem="name" [form]="form" key="order" [unbordered]="true"></app-input-select>
 </ng-template>

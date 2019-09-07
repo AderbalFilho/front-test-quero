@@ -9,10 +9,12 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./home.component.sass']
 })
 export class HomeComponent implements OnInit {
-  modalVisibility: 'none' | 'block' = 'none';
-  semesterChoice: 1 | 2 | 3 = 1;
-  options: Array<{ value: string, label: string }> = [{ value: 'string', label: 'string' }, { value: 'string2', label: 'string2' }]
   form: FormGroup;
+  modalVisibility: 'none' | 'block' = 'none';
+  options: Array<{ value: string, label: string }> = [{ value: 'string', label: 'string' }, { value: 'string2', label: 'string2' }];
+  orderArray: Array<{ value: string, label: string }> = [{ value: 'name', label: 'Nome da Faculdade' }];
+  semesterChoice: 1 | 2 | 3 = 1;
+  styles = { width: '60%' };
 
   faChevronLeft = faChevronLeft;
   faPlusCircle = faPlusCircle;
@@ -26,7 +28,8 @@ export class HomeComponent implements OnInit {
       course: [this.options, []],
       studyModalityPresential: [true, []],
       studyModalityDistance: [true, []],
-      paymentRange: [10000, []]
+      paymentRange: [10000, []],
+      order: [this.orderArray, []]
     });
   }
 

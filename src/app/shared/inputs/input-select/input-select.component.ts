@@ -13,7 +13,9 @@ export class InputSelectComponent implements OnInit, OnDestroy {
   @Input() key: string;
   @Input() label?: string;
   @Input() name: string;
+  @Input() unbordered?: boolean = false as boolean;
   @Input() selectedItem?: string;
+  @Input() styles?: object;
   @Output() changeInput = new EventEmitter();
 
   debouncer: Subject<any> = new Subject();
