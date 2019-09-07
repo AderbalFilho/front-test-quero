@@ -19,10 +19,10 @@
       1º semestre de 2020
     </button>
   </div>
-  <div class="add-scholarship">
+  <div class="add-scholarship" (click)="changeModalVisibility()">
     <div class="add-scholarship__items">
       <div>
-        <fa-icon [icon]="faPlusCircle" (click)="changeModalVisibility()"></fa-icon>
+        <fa-icon [icon]="faPlusCircle"></fa-icon>
       </div>
       <h3>Adicionar bolsa</h3>
       <p>Clique para adicionar bolsas de cursos do seu interesse</p>
