@@ -1,9 +1,9 @@
 export class Scholarship {
-  fullPrice: number;
-  priceWithDiscount: number;
-  discountPercentage: number;
-  startDate: string;
-  enrollmentSemester: string;
+  full_price: number;
+  price_with_discount: number;
+  discount_percentage: number;
+  start_date: string;
+  enrollment_semester: string;
   enabled: boolean;
   course: {
     name: string;
