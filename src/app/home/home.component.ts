@@ -5,6 +5,15 @@ import { faChevronLeft, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
 import { Scholarship } from '../shared/services/scholarship/scholarship';
 import { ScholarshipService } from '../shared/services/scholarship/scholarship.service';
+import { GroupButtonItem } from '../shared/inputs/input-button-group/group-button-item';
+
+class SemesterItem extends GroupButtonItem {
+  constructor(description: string, option: string) {
+    super(description, option);
+  }
+  year?: number;
+  semester?: number;
+}
 
 @Component({
   selector: 'app-home',
@@ -15,10 +24,11 @@ export class HomeComponent implements OnInit {
   cities: Array<{ value: string, label: string }> = [];
   courses: Array<{ value: string, label: string }> = [];
   form: FormGroup;
+  formButtonGroup: FormGroup;
   modalVisibility: 'none' | 'block' = 'none';
   orderArray: Array<{ value: string, label: string }> = [{ value: 'name', label: 'Nome da Faculdade' }];
   scholarships: Array<Scholarship> = [];
-  semesterChoice: 1 | 2 | 3 = 1;
+  semesters: Array<GroupButtonItem> = [];
   styles = { width: '60%' };
 
   faChevronLeft = faChevronLeft;
@@ -28,6 +38,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.formButtonGroup = this.fb.group({
+      semester: ['all', []]
+    });
+
     this.form = this.fb.group({
       city: [null, []],
       course: [null, []],
@@ -36,10 +50,14 @@ export class HomeComponent implements OnInit {
       paymentRange: [10000, []],
       order: ['name', []]
     });
-  }
 
-  changeSemester(semester: 1 | 2 | 3) {
-    this.semesterChoice = semester;
+    this.scholarshipService.getScholarships()
+      .subscribe(scholarships => {
+        this.scholarships = scholarships;
+        this.semesters = this.separateToButtonGroup(scholarships, ['enrollment_semester']);
+        this.cities = this.separateToSelect(scholarships, ['campus', 'city']);
+        this.courses = this.separateToSelect(scholarships, ['course', 'name']);
+      });
   }
 
   changeModalVisibility() {
@@ -71,6 +89,34 @@ export class HomeComponent implements OnInit {
   cityChanged(newCity: string) {
     this.courses = this.separateToSelect(this.scholarships, ['course', 'name'],
       { nodes: ['campus', 'city'], conditionalValue: newCity });
+  }
+
+  separateToButtonGroup(parentArray: Array<object>, nodes: Array<string>) {
+    let options: Array<string | SemesterItem> = [];
+    parentArray.forEach(childArray => {
+      /**
+       * Go through the node to get the string you want and add it to options
+       */
+      nodes.forEach(node => childArray = childArray[node]);
+      options.push(childArray as unknown as string);
+    });
+    // Remove duplicated elements
+    options = options.filter((el, i, a) => i === a.indexOf(el));
+    // Change the string Array to the object Array accepted in app-input-button-group
+    options = options.map(option => {
+      const semesterSplit = (option as string).split('.');
+      return {
+        option: option as string, year: parseInt(semesterSplit[0], 10), semester: parseInt(semesterSplit[1], 10),
+        description: semesterSplit[1] + 'º semestre de ' + semesterSplit[0]
+      };
+    });
+    // Sort by year and then by semester
+    options = options.sort((a: SemesterItem, b: SemesterItem) =>
+      (a.year > b.year || (a.year === b.year && a.semester > b.semester))
+        ? 1 : ((b.year > a.year || (b.year === a.year && b.semester > a.semester))
+          ? -1 : 0));
+    // Add all option
+    return [new GroupButtonItem('Todos os semestres', 'all')].concat(options as Array<GroupButtonItem>);
   }
 
 
@@ -107,6 +153,4 @@ export class HomeComponent implements OnInit {
       return { value: option, label: option };
     }) as Array<{ value: string, label: string }>;
   }
-
-
 }

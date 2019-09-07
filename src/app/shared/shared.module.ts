@@ -10,6 +10,7 @@ import { InputSelectComponent } from './inputs/input-select/input-select.compone
 import { NgSelectModule } from '@ng-select/ng-select';
 import { InputCheckboxComponent } from './inputs/input-checkbox/input-checkbox.component';
 import { InputRangeComponent } from './inputs/input-range/input-range.component';
+import { InputButtonGroupComponent } from './inputs/input-button-group/input-button-group.component';
 
 @NgModule({
   imports: [
@@ -23,13 +24,15 @@ import { InputRangeComponent } from './inputs/input-range/input-range.component'
     ModalComponent,
     InputSelectComponent,
     InputCheckboxComponent,
-    InputRangeComponent
+    InputRangeComponent,
+    InputButtonGroupComponent
   ],
   providers: [
     ModalComponent,
     InputSelectComponent,
     InputCheckboxComponent,
-    InputRangeComponent
+    InputRangeComponent,
+    InputButtonGroupComponent
   ],
   exports: [
     CommonModule,
@@ -37,7 +40,8 @@ import { InputRangeComponent } from './inputs/input-range/input-range.component'
     ModalComponent,
     InputSelectComponent,
     InputCheckboxComponent,
-    InputRangeComponent
+    InputRangeComponent,
+    InputButtonGroupComponent
   ]
 })
 export class SharedModule { }
