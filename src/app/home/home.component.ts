@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { faChevronLeft, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
-import { FormBuilder, FormGroup } from '@angular/forms';
+
+import { Scholarship } from '../shared/scholarship';
+import { ScholarshipService } from '../shared/scholarship.service';
 
 @Component({
   selector: 'app-home',
@@ -13,13 +16,14 @@ export class HomeComponent implements OnInit {
   modalVisibility: 'none' | 'block' = 'none';
   options: Array<{ value: string, label: string }> = [{ value: 'string', label: 'string' }, { value: 'string2', label: 'string2' }];
   orderArray: Array<{ value: string, label: string }> = [{ value: 'name', label: 'Nome da Faculdade' }];
+  scholarships: Array<Scholarship> = [];
   semesterChoice: 1 | 2 | 3 = 1;
   styles = { width: '60%' };
 
   faChevronLeft = faChevronLeft;
   faPlusCircle = faPlusCircle;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private scholarshipService: ScholarshipService) {
   }
 
   ngOnInit() {
@@ -38,7 +42,11 @@ export class HomeComponent implements OnInit {
   }
 
   changeModalVisibility() {
-    this.modalVisibility === 'none' ? this.modalVisibility = 'block' : this.modalVisibility = 'none';
+    this.scholarshipService.getScholarships()
+      .subscribe(scholarships => {
+        this.scholarships = scholarships;
+        this.modalVisibility === 'none' ? this.modalVisibility = 'block' : this.modalVisibility = 'none';
+      });
   }
 
 }
