@@ -36,9 +36,11 @@
 <ng-template #modalBody>
   <h3>Adicionar bolsa</h3>
   <p>Filtre e adicione as bolsas de seu interesse.</p>
-  <app-input-select label="SELECIONE SUA CIDADE" name="city" [form]="form" key="city">
+  <app-input-select label="SELECIONE SUA CIDADE" name="city" [options]="cities" [form]="form" key="city"
+    (changeInput)="cityChanged($event)">
   </app-input-select>
-  <app-input-select label="SELECIONE O CURSO DE SUA PREFERÊNCIA" name="course" [form]="form" key="course">
+  <app-input-select label="SELECIONE O CURSO DE SUA PREFERÊNCIA" name="course" [options]="courses" [form]="form"
+    key="course">
   </app-input-select>
   <label class="label-title">COMO VOCÊ QUER ESTUDAR?</label>
   <div class="study-modality">
@@ -59,5 +61,5 @@
     <span>Ordenar por</span>
   </div>
   <app-input-select style="display: flex; width: 100%;align-items: flex-end" name="order" [styles]="styles"
-    selectedItem="name" [form]="form" key="order" [unbordered]="true"></app-input-select>
+    [options]="orderArray" [form]="form" key="order" [unbordered]="true"></app-input-select>
 </ng-template>

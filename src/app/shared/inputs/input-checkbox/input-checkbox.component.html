@@ -1,3 +1,5 @@
-<div class="checkbox" [ngClass]="{'not-checked': !checked, 'checked': checked}" (click)="click()">
-  <fa-icon [icon]="faCheck" [ngClass]="{'not-checked--icon': !checked, 'checked--icon': checked}"></fa-icon>
+<div class="checkbox" [ngClass]="{'not-checked': !this.inputControl.value, 'checked': this.inputControl.value}"
+  (click)="click()">
+  <fa-icon [icon]="faCheck"
+    [ngClass]="{'not-checked--icon': !this.inputControl.value, 'checked--icon': this.inputControl.value}"></fa-icon>
 </div>

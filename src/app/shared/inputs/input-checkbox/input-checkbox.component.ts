@@ -24,7 +24,6 @@ export class InputCheckboxComponent implements OnInit, OnDestroy {
 
   debouncer: Subject<any> = new Subject();
   inputControl: AbstractControl;
-  checked: boolean;
 
   faCheck = faCheck;
 
@@ -36,7 +35,6 @@ export class InputCheckboxComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.inputControl = this.form.get(this.key) as AbstractControl;
-    this.checked = this.inputControl.value ? true : false;
   }
 
   ngOnDestroy(): void {
@@ -51,7 +49,7 @@ export class InputCheckboxComponent implements OnInit, OnDestroy {
   }
 
   click() {
-    this.checked = !this.checked;
-    this.modelChanged(this.checked);
+    this.inputControl.setValue(!this.inputControl.value);
+    this.modelChanged(this.inputControl.value);
   }
 }
