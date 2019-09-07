@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { faChevronLeft, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
-import { Scholarship } from '../shared/scholarship';
-import { ScholarshipService } from '../shared/scholarship.service';
+import { Scholarship } from '../shared/services/scholarship/scholarship';
+import { ScholarshipService } from '../shared/services/scholarship/scholarship.service';
 
 @Component({
   selector: 'app-home',
