@@ -36,11 +36,9 @@
 <ng-template #modalBody>
   <h3>Adicionar bolsa</h3>
   <p>Filtre e adicione as bolsas de seu interesse.</p>
-  <app-input-select [label]="'SELECIONE SUA CIDADE'" [name]="'city'"
-    [form]="form" key="city">
+  <app-input-select label="SELECIONE SUA CIDADE" name="city" [form]="form" key="city">
   </app-input-select>
-  <app-input-select [label]="'SELECIONE O CURSO DE SUA PREFERÊNCIA'" [name]="'course'"
-    [form]="form" key="course">
+  <app-input-select label="SELECIONE O CURSO DE SUA PREFERÊNCIA" name="course" [form]="form" key="course">
   </app-input-select>
   <label class="label-title">COMO VOCÊ QUER ESTUDAR?</label>
   <div class="study-modality">
@@ -53,4 +51,7 @@
       <label>A distância</label>
     </div>
   </div>
+  <app-input-range label="ATÉ QUANTO PODE PAGAR?" [form]="form" key="paymentRange" prefixValue="R$" [minRange]="100"
+    [maxRange]="10000">
+  </app-input-range>
 </ng-template>

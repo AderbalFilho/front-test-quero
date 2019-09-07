@@ -1,4 +1,11 @@
-import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output
+} from '@angular/core';
 import { FormGroup, AbstractControl } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
 
@@ -10,10 +17,10 @@ import { Subject } from 'rxjs';
   templateUrl: './input-checkbox.component.html',
   styleUrls: ['./input-checkbox.component.sass']
 })
-export class InputCheckboxComponent implements OnInit {
+export class InputCheckboxComponent implements OnInit, OnDestroy {
   @Input() form: FormGroup;
   @Input() key: string;
-  @Output() change = new EventEmitter();
+  @Output() changeInput = new EventEmitter();
 
   debouncer: Subject<any> = new Subject();
   inputControl: AbstractControl;
@@ -24,10 +31,10 @@ export class InputCheckboxComponent implements OnInit {
   constructor() {
     this.debouncer
       .pipe(debounceTime(300))
-      .subscribe((val) => this.change.emit(val));
+      .subscribe((val) => this.changeInput.emit(val));
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.inputControl = this.form.get(this.key) as AbstractControl;
     this.checked = this.inputControl.value ? true : false;
   }
