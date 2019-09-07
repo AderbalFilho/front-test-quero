@@ -8,7 +8,8 @@
     Adicione bolsas de cursos e faculdades do seu interesse e receba atualizações
     com as melhores ofertas disponíveis.
   </p>
-  <app-input-button-group name="semester" [options]="semesters" [form]="formButtonGroup" key="semester">
+  <app-input-button-group name="semester" [options]="semesters" [form]="formButtonGroup" key="semester"
+    (changeInput)="semesterChanged($event)">
   </app-input-button-group>
   <div class="add-scholarship" (click)="changeModalVisibility()">
     <div class="add-scholarship__items">

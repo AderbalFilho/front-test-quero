@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
   modalVisibility: 'none' | 'block' = 'none';
   orderArray: Array<{ value: string, label: string }> = [{ value: 'name', label: 'Nome da Faculdade' }];
   scholarships: Array<Scholarship> = [];
+  scholarshipsFiltered: Array<Scholarship> = [];
   semesters: Array<GroupButtonItem> = [];
   styles = { width: '60%' };
 
@@ -54,41 +55,40 @@ export class HomeComponent implements OnInit {
     this.scholarshipService.getScholarships()
       .subscribe(scholarships => {
         this.scholarships = scholarships;
-        this.semesters = this.separateToButtonGroup(scholarships, ['enrollment_semester']);
-        this.cities = this.separateToSelect(scholarships, ['campus', 'city']);
-        this.courses = this.separateToSelect(scholarships, ['course', 'name']);
+        this.scholarshipsFiltered = scholarships;
+        this.semesters = this.separateToButtonGroup(this.scholarshipsFiltered, ['enrollment_semester']);
+        this.cities = this.separateToSelect(this.scholarshipsFiltered, ['campus', 'city']);
+        this.courses = this.separateToSelect(this.scholarshipsFiltered, ['course', 'name']);
       });
   }
 
   changeModalVisibility() {
-    if (this.scholarships.length > 0) {
-      this.modalVisibility === 'none' ? this.modalVisibility = 'block' : this.modalVisibility = 'none';
-      if (this.modalVisibility === 'block') {
-        // Reset the form
-        this.form.get('city').setValue(null);
-        this.form.get('course').setValue(null);
-        this.form.get('studyModalityPresential').setValue(true);
-        this.form.get('studyModalityDistance').setValue(true);
-        this.form.get('paymentRange').setValue(10000);
-        this.form.get('order').setValue('name');
-        // Get the cities and courses arrays again, because selects were reseted
-        this.cities = this.separateToSelect(this.scholarships, ['campus', 'city']);
-        this.courses = this.separateToSelect(this.scholarships, ['course', 'name']);
-      }
-    } else {
-      this.scholarshipService.getScholarships()
-        .subscribe(scholarships => {
-          this.scholarships = scholarships;
-          this.cities = this.separateToSelect(scholarships, ['campus', 'city']);
-          this.courses = this.separateToSelect(scholarships, ['course', 'name']);
-          this.modalVisibility === 'none' ? this.modalVisibility = 'block' : this.modalVisibility = 'none';
-        });
+    this.modalVisibility === 'none' ? this.modalVisibility = 'block' : this.modalVisibility = 'none';
+    if (this.modalVisibility === 'block') {
+      // Reset the form
+      this.form.get('city').setValue(null);
+      this.form.get('course').setValue(null);
+      this.form.get('studyModalityPresential').setValue(true);
+      this.form.get('studyModalityDistance').setValue(true);
+      this.form.get('paymentRange').setValue(10000);
+      this.form.get('order').setValue('name');
+      // Get the cities and courses arrays again, because selects were reseted
+      this.cities = this.separateToSelect(this.scholarshipsFiltered, ['campus', 'city']);
+      this.courses = this.separateToSelect(this.scholarshipsFiltered, ['course', 'name']);
     }
   }
 
   cityChanged(newCity: string) {
-    this.courses = this.separateToSelect(this.scholarships, ['course', 'name'],
+    this.courses = this.separateToSelect(this.scholarshipsFiltered, ['course', 'name'],
       { nodes: ['campus', 'city'], conditionalValue: newCity });
+  }
+
+  semesterChanged(newSemester: string) {
+    if (newSemester === 'all') {
+      this.scholarshipsFiltered = this.scholarships;
+    } else {
+      this.scholarshipsFiltered = this.scholarships.filter(scholarship => newSemester === scholarship.enrollment_semester);
+    }
   }
 
   separateToButtonGroup(parentArray: Array<object>, nodes: Array<string>) {
