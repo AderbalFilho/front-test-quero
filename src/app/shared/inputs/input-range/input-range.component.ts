@@ -3,6 +3,9 @@ import { FormGroup, AbstractControl } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
+import { registerLocaleData } from '@angular/common';
+import es from '@angular/common/locales/es';
+
 @Component({
   selector: 'app-input-range',
   templateUrl: './input-range.component.html',
@@ -30,6 +33,7 @@ export class InputRangeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    registerLocaleData(es);
     this.inputControl = this.form.get(this.key) as AbstractControl;
     this.maxRange = this.maxRange > this.minRange ? this.maxRange : this.minRange;
     this.value = this.inputControl.value ? this.inputControl.value : this.minRange;

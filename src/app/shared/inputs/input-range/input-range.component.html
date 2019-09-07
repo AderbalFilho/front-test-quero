@@ -1,6 +1,6 @@
 <div class="slidecontainer">
   <label *ngIf="label">{{label}}</label>
-  <p *ngIf="showValue">{{prefixValue}}{{value}}{{sufixValue}}</p>
+  <p *ngIf="showValue">{{prefixValue}}{{value | number:'':'es'}}{{sufixValue}}</p>
   <input type="range" [min]="minRange" [max]="maxRange" [(ngModel)]="value" (ngModelChange)="modelChanged($event)"
     class="slider">
 </div>
