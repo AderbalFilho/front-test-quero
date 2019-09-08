@@ -8,138 +8,225 @@ $text-black: #1F2D30
 $background-grey: #FBFBFB
 $modal-overlay: #1F2D30E0 // #1F2D30 opacity 88%
 
-@media (max-width: 576px)
-  $border-grey: 1px solid lightgrey
+$md: 768px
+$lg: 992px
+$border-grey: 1px solid lightgrey
 
-  %flex-between
+%flex-between
+  display: flex
+  justify-content: space-between
+
+%topnav__item
+  align-items: center
+  display: flex
+  flex-direction: column
+  @media only screen and (min-width: $md)
+    flex-direction: row
+
+.header-footer
+  display: flex
+  flex-direction: column
+  height: 100vh
+  justify-content: space-between
+
+.topnav
+  @extend %flex-between
+  a
+    color: $secondary-blue
     display: flex
-    justify-content: space-between
-
-  %topnav__item
-    align-items: center
-    display: flex
-    flex-direction: column
-
-  .header-footer
-    display: flex
-    flex-direction: column
-    height: 100vh
-    justify-content: space-between
-
-  .topnav
-    @extend %flex-between
-    a
-      color: $secondary-blue
-      font-size: 12px
-      font-weight: bold
-      margin: 10px 0 10px 0
-      text-decoration: none
-      fa-icon
-        font-size: 20px
-      div
-        @extend %topnav__item
-      img
-        @extend %topnav__item
-        height: 90%
-        padding: 0
-      .topnav__left
-        border-right: $border-grey
-        padding: 0 15px
-      .topnav__right
-        border-left: $border-grey
-        padding: 0 15px
-
-  .topmenu
-    @extend %flex-between
-    background-color: $main-blue
-    color: #FFF
+    flex: 1
+    font-size: 12px
     font-weight: bold
-    padding: 0 15px
-    .dropdown
-      position: relative
-      display: inline-block
-      .dropdown__button
-        background-color: $main-blue
-        border: none
-        color: #FFF
-        cursor: pointer
-        display: flex
-        flex-direction: column
-        font-size: 16px
-        font-weight: bold
-        height: 100%
-        justify-content: center
-        fa-icon
-          font-size: 12px
-          margin-left: 10px
-      .dropdown__content
-        background-color: $background-grey
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2)
-        display: none
-        min-width: 160px
-        position: absolute
-        right: 0
-        z-index: 1
-        a
-          color: $text-black
-          display: block
-          padding: 12px 16px
-          text-decoration: none
-
-    .dropdown:hover .dropdown__content
-      display: block
-
-    .dropdown:hover .dropdown__button
-      background-color: $main-blue
-
-  footer
-    %footer__item
-      align-items: center
-      background-color: $secondary-blue
-      display: flex
-      flex: 1
-      flex-direction: column
-      font-size: 12px
-      font-weight: bold
-      margin: 2px 2px 0 0
-      padding: 10px 0
-
-    background-color: $main-blue
-    color: #FFF
-    font-size: 14px
-    font-weight: bold
-    text-align: center
+    margin: 10px 0 10px 0
+    text-decoration: none
+    @media only screen and (min-width: $md)
+      height: 50px
     fa-icon
       font-size: 20px
-      margin-bottom: 5px
-    h4
+    div
+      @extend %topnav__item
+    .topnav__left-help
+      border-right: $border-grey
+      height: 100%
+      padding: 0 18px
+      @media only screen and (min-width: $lg)
+        padding: 0 18px 0 80px
+      .topnav__left-help__how
+        display: none
+        @media only screen and (min-width: $md)
+          display: flex
+          margin-left: 5px
+      .topnav__left-help__help
+        @media only screen and (min-width: $md)
+          display: none
+    .topnav__left-message
+      display: none
+      @media only screen and (min-width: $md)
+        display: flex
+        flex-direction: row
+        fa-icon
+          color: $green
+          margin-left: 18px
+          font-size: 25px
+        .topnav__left-message__phone
+          align-items: center
+          display: flex
+          flex-direction: column
+          justify-content: flex-start
+          margin-left: 6px
+          p
+            width: 100%
+          .topnav__left-message__phone-number
+            font-size: 14px
+            margin: 3px 0
+          .topnav__left-message__phone-message
+            font-size: 10px
+            margin: 3px 0
+  .topnav__right
+    justify-content: flex-end
+    .topnav__right-profile
+      border-left: $border-grey
+      padding: 0 18px
+      @media only screen and (min-width: $md)
+        border-left: none
+      @media only screen and (min-width: $lg)
+        padding: 0 80px 0 18px
+      .topnav__right-profile__account
+        @media only screen and (min-width: $md)
+          display: none
+      .topnav__right-profile__name
+        display: none
+        @media only screen and (min-width: $md)
+          display: flex
+          margin-right: 8px
+  img
+    @extend %topnav__item
+    align-self: center
+    flex: 1
+    height: 35px
+    padding: 0
+    margin: 10px 0 10px 0
+    max-width: 100px
+    @media only screen and (min-width: $md)
+      height: 45px
       margin: 0
-      padding: 20px 0
-    .footer__first-item
-      background-color: $secondary-blue
+      max-width: 110px
+
+.topmenu
+  @extend %flex-between
+  background-color: $main-blue
+  color: #FFF
+  font-weight: bold
+  padding: 0 15px
+  @media only screen and (min-width: $md)
+    padding: 5px 15px
+  p
+    @media only screen and (min-width: $md)
+      align-items: center
       display: flex
-      flex-direction: row
-      padding: 10px 0
-      fa-icon
+      padding: 0 5px
+      margin: 0 5px
+  .topmenu__nav
+    display: flex
+    .topmenu__nav-items
+      display: none
+      @media only screen and (min-width: $md)
+        display: flex
+        margin-left: 30px
+      .topmenu__nav-item
         align-items: center
+        color: #FFF
         display: flex
-        flex: 1
-        justify-content: flex-end
-        margin-bottom: 0
-        margin-right: 10px
-      .footer__first-item__phone
-        display: flex
-        flex: 3
-        flex-direction: column
-        text-align: left
-        p
-          margin: 0
-          padding: 0
-    .footer__second-item
+        font-size: 14px
+        padding: 5px 20px
+        text-decoration: none
+  .dropdown
+    position: relative
+    display: inline-block
+    .dropdown__button
+      background-color: $main-blue
+      border: none
+      color: #FFF
+      cursor: pointer
       display: flex
-      flex-direction: row
-    .footer__subitem
-      @extend %footer__item
-    .footer__subitem--last
-      @extend %footer__item
-      margin: 2px 0 0 0
+      flex-direction: column
+      font-size: 16px
+      font-weight: bold
+      height: 100%
+      justify-content: center
+      fa-icon
+        font-size: 12px
+        margin-left: 10px
+    .dropdown__content
+      background-color: $background-grey
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2)
+      display: none
+      min-width: 160px
+      position: absolute
+      right: 0
+      z-index: 1
+      a
+        color: $text-black
+        display: block
+        padding: 12px 16px
+        text-decoration: none
+    @media only screen and (min-width: $md)
+      display: none
+
+  .dropdown:hover .dropdown__content
+    display: block
+
+  .dropdown:hover .dropdown__button
+    background-color: $main-blue
+
+footer
+  %footer__item
+    align-items: center
+    background-color: $secondary-blue
+    display: flex
+    flex: 1
+    flex-direction: column
+    font-size: 12px
+    font-weight: bold
+    margin: 2px 2px 0 0
+    padding: 10px 0
+
+  background-color: $main-blue
+  color: #FFF
+  font-size: 14px
+  font-weight: bold
+  text-align: center
+  fa-icon
+    font-size: 20px
+    margin-bottom: 5px
+  h4
+    margin: 0
+    padding: 20px 0
+  .footer__first-item
+    background-color: $secondary-blue
+    display: flex
+    flex-direction: row
+    padding: 10px 0
+    fa-icon
+      align-items: center
+      display: flex
+      flex: 1
+      justify-content: flex-end
+      margin-bottom: 0
+      margin-right: 10px
+    .footer__first-item__phone
+      display: flex
+      flex: 3
+      flex-direction: column
+      text-align: left
+      p
+        margin: 0
+        padding: 0
+  .footer__second-item
+    display: flex
+    flex-direction: row
+  .footer__subitem
+    @extend %footer__item
+  .footer__subitem--last
+    @extend %footer__item
+    margin: 2px 0 0 0
