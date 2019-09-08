@@ -3,19 +3,18 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
-import { ModalComponent } from './modal/modal.component';
-import { InputSelectComponent } from './inputs/input-select/input-select.component';
-
 import { NgSelectModule } from '@ng-select/ng-select';
+
+import { ButtonComponent } from './button/button.component';
+import { InputButtonGroupComponent } from './inputs/input-button-group/input-button-group.component';
 import { InputCheckboxComponent } from './inputs/input-checkbox/input-checkbox.component';
 import { InputRangeComponent } from './inputs/input-range/input-range.component';
-import { InputButtonGroupComponent } from './inputs/input-button-group/input-button-group.component';
-import { ScholarshipListComponent } from './scholarship-list/scholarship-list.component';
-import { ButtonComponent } from './button/button.component';
 import { InputRateComponent } from './inputs/input-rate/input-rate.component';
+import { InputSelectComponent } from './inputs/input-select/input-select.component';
+import { ModalComponent } from './modal/modal.component';
 import { RangeNumberPipe } from './pipes/range-number.pipe';
-import { SchorlarshipFavoriteComponent } from './schorlarship-favorite/schorlarship-favorite.component';
+import { ScholarshipFavoriteComponent } from './scholarship-favorite/scholarship-favorite.component';
+import { ScholarshipListComponent } from './scholarship-list/scholarship-list.component';
 
 @NgModule({
   imports: [
@@ -34,7 +33,7 @@ import { SchorlarshipFavoriteComponent } from './schorlarship-favorite/schorlars
     InputSelectComponent,
     ModalComponent,
     RangeNumberPipe,
-    SchorlarshipFavoriteComponent,
+    ScholarshipFavoriteComponent,
     ScholarshipListComponent
   ],
   providers: [
@@ -45,7 +44,7 @@ import { SchorlarshipFavoriteComponent } from './schorlarship-favorite/schorlars
     InputRateComponent,
     InputSelectComponent,
     ModalComponent,
-    SchorlarshipFavoriteComponent,
+    ScholarshipFavoriteComponent,
     ScholarshipListComponent
   ],
   exports: [
@@ -58,7 +57,7 @@ import { SchorlarshipFavoriteComponent } from './schorlarship-favorite/schorlars
     InputRangeComponent,
     InputRateComponent,
     InputSelectComponent,
-    SchorlarshipFavoriteComponent,
+    ScholarshipFavoriteComponent,
     ScholarshipListComponent
   ]
 })

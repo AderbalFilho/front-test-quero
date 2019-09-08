@@ -4,11 +4,11 @@ import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-schorlarship-favorite',
-  templateUrl: './schorlarship-favorite.component.html',
-  styleUrls: ['./schorlarship-favorite.component.sass']
+  selector: 'app-scholarship-favorite',
+  templateUrl: './scholarship-favorite.component.html',
+  styleUrls: ['./scholarship-favorite.component.sass']
 })
-export class SchorlarshipFavoriteComponent implements OnInit, OnDestroy {
+export class ScholarshipFavoriteComponent implements OnInit, OnDestroy {
   @Input() form: FormGroup;
   @Input() key: string;
   @Output() changeInput = new EventEmitter();
