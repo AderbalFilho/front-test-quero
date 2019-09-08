@@ -13,7 +13,7 @@ import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons';
 })
 export class InputRateComponent implements OnInit, OnDestroy {
   @Input() canChange: boolean = true as boolean;
-  @Input() color: string = '#FDCB13' as string;
+  @Input() color: string = '#DE9E1F' as string;
   @Input() form: FormGroup;
   @Input() key: string;
   @Input() showLabel: boolean = false as boolean;

@@ -1,1 +1,45 @@
-<p>schorlarship-favorite works!</p>
+<div class="favorite">
+  <div class="favorite--container">
+    <div class="favorite__items">
+      <div class="favorite__items-img">
+        <img [src]="this.inputControl.value.university.logo_url" alt="Logo da faculdade">
+      </div>
+      <div class="favorite__items-course">
+        <h5>{{this.inputControl.value.university.name | uppercase}}</h5>
+        <h3>{{this.inputControl.value.course.name}}</h3>
+        <div class="favorite__items-course__score">
+          <app-input-rate [form]="form" key="score" [showLabel]="true"></app-input-rate>
+        </div>
+      </div>
+      <hr />
+      <div class="favorite__items-details">
+        <h5>
+          {{this.inputControl.value.course.kind | uppercase}}
+          <span class="favorite__items-details__icon">
+            <fa-icon [icon]="faCircle"></fa-icon>
+          </span>
+          {{this.inputControl.value.course.shift | uppercase}}
+        </h5>
+        <p>Início das aulas em: {{this.inputControl.value.start_date}}</p>
+      </div>
+      <hr />
+      <div *ngIf="this.inputControl.value.enabled" class="favorite__items-values">
+        <h5>Mensalidade com o Quero Bolsa:</h5>
+        <small><del>R$ {{this.inputControl.value.full_price | number:'1.2':'es'}}</del></small>
+        <p><span>R$ {{this.inputControl.value.price_with_discount | number:'1.2':'es'}}</span> /mês</p>
+      </div>
+      <div *ngIf="!this.inputControl.value.enabled">
+        <h5>Bolsa indisponível.</h5>
+        <p>Entre em contato com nosso atendimento para saber mais.</p>
+      </div>
+    </div>
+    <div class="flex-between">
+      <app-button [form]="form" padding="14px 25px" key="delete" label="Excluir" colorClass="outline-blue"
+        (changeInput)="buttonClicked($event)"></app-button>
+      <app-button [form]="form" padding="14px 50px" key="seeOffer" [disabled]="!this.inputControl.value.enabled"
+        [label]="this.inputControl.value.enabled ? 'Ver oferta' : 'Indisponível'" colorClass="yellow"
+        (changeInput)="buttonClicked($event)">
+      </app-button>
+    </div>
+  </div>
+</div>

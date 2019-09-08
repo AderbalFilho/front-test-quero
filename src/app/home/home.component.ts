@@ -170,10 +170,19 @@ export class HomeComponent implements OnInit {
     }
     if (key === 'add') {
       this.changeModalVisibility();
-      this.scholarshipsFavorites = this.form.get('scholarshipList').value;
+      const scholarshipList = this.form.get('scholarshipList').value.filter(scholarship => {
+        let duplicated: boolean = false as boolean;
+        const duplicatedJSON = JSON.stringify(scholarship);
+        this.scholarshipsFavorites.forEach(favoriteScholarship => {
+          if (duplicatedJSON === JSON.stringify(favoriteScholarship)) {
+            duplicated = true;
+            return;
+          }
+        });
+        return !duplicated;
+      });
+      this.scholarshipsFavorites = this.scholarshipsFavorites.concat(scholarshipList);
       localStorage.setItem('favoriteCourses', JSON.stringify(this.scholarshipsFavorites));
-      // TODO: Get list (this.form.get('scholarshipList').value) and add to new component
-      // to show list in home.
     }
   }
 
@@ -238,5 +247,10 @@ export class HomeComponent implements OnInit {
     return options.map(option => {
       return { value: option, label: option };
     }) as Array<{ value: string, label: string }>;
+  }
+
+  deleteScholarship(scholarship: { value: Scholarship, key: string }) {
+    this.scholarshipsFavorites.splice(parseInt(scholarship.key.slice(9), 10), 1);
+    localStorage.setItem('favoriteCourses', JSON.stringify(this.scholarshipsFavorites));
   }
 }

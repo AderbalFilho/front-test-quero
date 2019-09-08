@@ -20,6 +20,9 @@
       <p>Clique para adicionar bolsas de cursos do seu interesse</p>
     </div>
   </div>
+  <app-scholarship-favorite *ngFor="let favorite of this.scholarshipsFavorites; let i = index" [key]="'favorites'+i"
+    [value]="favorite" (changeInput)="deleteScholarship($event)">
+  </app-scholarship-favorite>
 </div>
 
 <app-modal [modalBody]="modalBody" [ngStyle]="{'display': modalVisibility}" (closeModal)="changeModalVisibility()">
