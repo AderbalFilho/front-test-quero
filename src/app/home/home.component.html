@@ -52,8 +52,8 @@
     <span>Resultado:</span>
     <span>Ordenar por</span>
   </div>
-  <app-input-select style="display: flex; width: 100%;align-items: flex-end" name="order" [styles]="styles"
-    [options]="orderArray" [form]="form" key="order" [unbordered]="true"></app-input-select>
+  <app-input-select class="select-order" name="order" [styles]="styles" [options]="orderArray" [form]="form" key="order"
+    [unbordered]="true"></app-input-select>
   <app-scholarship-list [options]="scholarshipsFiltered" [form]="form" key="scholarshipList"
     (changeInput)="getScholarshipsList($event)"></app-scholarship-list>
   <div class="flex-between">
