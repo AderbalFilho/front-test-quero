@@ -8,138 +8,140 @@ $text-black: #1F2D30
 $background-grey: #FBFBFB
 $modal-overlay: #1F2D30E0 // #1F2D30 opacity 88%
 
-@media (max-width: 576px)
-  $border-grey: 1px solid lightgrey
+// @media (max-width: 576px)
+$border-grey: 1px solid lightgrey
 
-  %flex-between
-    display: flex
-    justify-content: space-between
+%flex-between
+  display: flex
+  justify-content: space-between
 
-  %topnav__item
-    align-items: center
-    display: flex
-    flex-direction: column
+%topnav__item
+  align-items: center
+  display: flex
+  flex-direction: column
 
-  .header-footer
-    display: flex
-    flex-direction: column
-    height: 100vh
-    justify-content: space-between
+.header-footer
+  display: flex
+  flex-direction: column
+  height: 100vh
+  justify-content: space-between
 
-  .topnav
-    @extend %flex-between
-    a
-      color: $secondary-blue
-      font-size: 12px
-      font-weight: bold
-      margin: 10px 0 10px 0
-      text-decoration: none
-      fa-icon
-        font-size: 20px
-      div
-        @extend %topnav__item
-      img
-        @extend %topnav__item
-        height: 90%
-        padding: 0
-      .topnav__left
-        border-right: $border-grey
-        padding: 0 15px
-      .topnav__right
-        border-left: $border-grey
-        padding: 0 15px
-
-  .topmenu
-    @extend %flex-between
-    background-color: $main-blue
-    color: #FFF
+.topnav
+  @extend %flex-between
+  a
+    color: $secondary-blue
+    font-size: 12px
     font-weight: bold
-    padding: 0 15px
-    .dropdown
-      position: relative
-      display: inline-block
-      .dropdown__button
-        background-color: $main-blue
-        border: none
-        color: #FFF
-        cursor: pointer
-        display: flex
-        flex-direction: column
-        font-size: 16px
-        font-weight: bold
-        height: 100%
-        justify-content: center
-        fa-icon
-          font-size: 12px
-          margin-left: 10px
-      .dropdown__content
-        background-color: $background-grey
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2)
-        display: none
-        min-width: 160px
-        position: absolute
-        right: 0
-        z-index: 1
-        a
-          color: $text-black
-          display: block
-          padding: 12px 16px
-          text-decoration: none
-
-    .dropdown:hover .dropdown__content
-      display: block
-
-    .dropdown:hover .dropdown__button
-      background-color: $main-blue
-
-  footer
-    %footer__item
-      align-items: center
-      background-color: $secondary-blue
-      display: flex
-      flex: 1
-      flex-direction: column
-      font-size: 12px
-      font-weight: bold
-      margin: 2px 2px 0 0
-      padding: 10px 0
-
-    background-color: $main-blue
-    color: #FFF
-    font-size: 14px
-    font-weight: bold
-    text-align: center
+    margin: 10px 0 10px 0
+    text-decoration: none
     fa-icon
       font-size: 20px
-      margin-bottom: 5px
-    h4
-      margin: 0
-      padding: 20px 0
-    .footer__first-item
-      background-color: $secondary-blue
+    div
+      @extend %topnav__item
+    .topnav__left
+      border-right: $border-grey
+      padding: 0 15px
+    .topnav__right
+      border-left: $border-grey
+      padding: 0 15px
+  img
+    @extend %topnav__item
+    align-self: center
+    height: 35px
+    padding: 0
+    margin: 10px 0 10px 0
+
+.topmenu
+  @extend %flex-between
+  background-color: $main-blue
+  color: #FFF
+  font-weight: bold
+  padding: 0 15px
+  .dropdown
+    position: relative
+    display: inline-block
+    .dropdown__button
+      background-color: $main-blue
+      border: none
+      color: #FFF
+      cursor: pointer
       display: flex
-      flex-direction: row
-      padding: 10px 0
+      flex-direction: column
+      font-size: 16px
+      font-weight: bold
+      height: 100%
+      justify-content: center
       fa-icon
-        align-items: center
-        display: flex
-        flex: 1
-        justify-content: flex-end
-        margin-bottom: 0
-        margin-right: 10px
-      .footer__first-item__phone
-        display: flex
-        flex: 3
-        flex-direction: column
-        text-align: left
-        p
-          margin: 0
-          padding: 0
-    .footer__second-item
+        font-size: 12px
+        margin-left: 10px
+    .dropdown__content
+      background-color: $background-grey
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2)
+      display: none
+      min-width: 160px
+      position: absolute
+      right: 0
+      z-index: 1
+      a
+        color: $text-black
+        display: block
+        padding: 12px 16px
+        text-decoration: none
+
+  .dropdown:hover .dropdown__content
+    display: block
+
+  .dropdown:hover .dropdown__button
+    background-color: $main-blue
+
+footer
+  %footer__item
+    align-items: center
+    background-color: $secondary-blue
+    display: flex
+    flex: 1
+    flex-direction: column
+    font-size: 12px
+    font-weight: bold
+    margin: 2px 2px 0 0
+    padding: 10px 0
+
+  background-color: $main-blue
+  color: #FFF
+  font-size: 14px
+  font-weight: bold
+  text-align: center
+  fa-icon
+    font-size: 20px
+    margin-bottom: 5px
+  h4
+    margin: 0
+    padding: 20px 0
+  .footer__first-item
+    background-color: $secondary-blue
+    display: flex
+    flex-direction: row
+    padding: 10px 0
+    fa-icon
+      align-items: center
       display: flex
-      flex-direction: row
-    .footer__subitem
-      @extend %footer__item
-    .footer__subitem--last
-      @extend %footer__item
-      margin: 2px 0 0 0
+      flex: 1
+      justify-content: flex-end
+      margin-bottom: 0
+      margin-right: 10px
+    .footer__first-item__phone
+      display: flex
+      flex: 3
+      flex-direction: column
+      text-align: left
+      p
+        margin: 0
+        padding: 0
+  .footer__second-item
+    display: flex
+    flex-direction: row
+  .footer__subitem
+    @extend %footer__item
+  .footer__subitem--last
+    @extend %footer__item
+    margin: 2px 0 0 0
