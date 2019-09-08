@@ -17,7 +17,10 @@ import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  dropdownItems: Array<string> = ['Pré-matrícula', 'Bolsas favoritas'];
+  dropdownItems: Array<{ value: string, active: boolean }> = [
+    { value: 'Pré-matrícula', active: false },
+    { value: 'Bolsas favoritas', active: true }
+  ];
 
   faInfoCircle = faInfoCircle;
   faUserCircle = faUserCircle;

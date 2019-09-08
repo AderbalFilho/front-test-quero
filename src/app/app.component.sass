@@ -118,8 +118,8 @@ $border-grey: 1px solid lightgrey
   color: #FFF
   font-weight: bold
   padding: 0 15px
-  @media only screen and (min-width: $md)
-    padding: 5px 15px
+  @media only screen and (min-width: $lg)
+    padding: 0 80px
   p
     @media only screen and (min-width: $md)
       align-items: center
@@ -128,11 +128,17 @@ $border-grey: 1px solid lightgrey
       margin: 0 5px
   .topmenu__nav
     display: flex
+    p
+      @media only screen and (min-width: $lg)
+        padding: 0
+        margin: 0
     .topmenu__nav-items
       display: none
       @media only screen and (min-width: $md)
         display: flex
         margin-left: 30px
+      .active
+        background-color: #007A8D
       .topmenu__nav-item
         align-items: center
         color: #FFF
@@ -140,6 +146,8 @@ $border-grey: 1px solid lightgrey
         font-size: 14px
         padding: 5px 20px
         text-decoration: none
+        @media only screen and (min-width: $md)
+          padding: 10px 20px
   .dropdown
     position: relative
     display: inline-block
@@ -202,6 +210,9 @@ footer
   h4
     margin: 0
     padding: 20px 0
+  .footer__items
+    @media only screen and (min-width: $md)
+
   .footer__first-item
     background-color: $secondary-blue
     display: flex

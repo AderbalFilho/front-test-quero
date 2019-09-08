@@ -29,7 +29,8 @@
         <div class="topmenu__nav">
           <p>Minha conta</p>
           <div class="topmenu__nav-items">
-            <a class="topmenu__nav-item" *ngFor="let dropdownItem of dropdownItems" href="#">{{dropdownItem}}</a>
+            <a *ngFor="let dropdownItem of dropdownItems" class="topmenu__nav-item"
+              [ngClass]="{active: dropdownItem.active}" href="#">{{dropdownItem.value}}</a>
           </div>
         </div>
         <div class="dropdown">
@@ -40,7 +41,7 @@
             </div>
           </button>
           <div class="dropdown__content">
-            <a *ngFor="let dropdownItem of dropdownItems" href="#">{{dropdownItem}}</a>
+            <a *ngFor="let dropdownItem of dropdownItems" href="#">{{dropdownItem.value}}</a>
           </div>
         </div>
       </div>
