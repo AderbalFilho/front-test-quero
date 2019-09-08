@@ -50,7 +50,9 @@ export class HomeComponent implements OnInit {
       studyModalityDistance: [true, []],
       paymentRange: [10000, []],
       order: ['name', []],
-      scholarshipList: [[], []]
+      scholarshipList: [[], []],
+      cancel: [null, []],
+      add: [null, []]
     });
 
     this.scholarshipService.getScholarships()

@@ -12,6 +12,7 @@ import { InputCheckboxComponent } from './inputs/input-checkbox/input-checkbox.c
 import { InputRangeComponent } from './inputs/input-range/input-range.component';
 import { InputButtonGroupComponent } from './inputs/input-button-group/input-button-group.component';
 import { ScholarshipListComponent } from './scholarship-list/scholarship-list.component';
+import { ButtonComponent } from './button/button.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { ScholarshipListComponent } from './scholarship-list/scholarship-list.co
     InputCheckboxComponent,
     InputRangeComponent,
     InputButtonGroupComponent,
-    ScholarshipListComponent
+    ScholarshipListComponent,
+    ButtonComponent
   ],
   providers: [
     ModalComponent,
@@ -35,7 +37,8 @@ import { ScholarshipListComponent } from './scholarship-list/scholarship-list.co
     InputCheckboxComponent,
     InputRangeComponent,
     InputButtonGroupComponent,
-    ScholarshipListComponent
+    ScholarshipListComponent,
+    ButtonComponent
   ],
   exports: [
     CommonModule,
@@ -45,7 +48,8 @@ import { ScholarshipListComponent } from './scholarship-list/scholarship-list.co
     InputCheckboxComponent,
     InputRangeComponent,
     InputButtonGroupComponent,
-    ScholarshipListComponent
+    ScholarshipListComponent,
+    ButtonComponent
   ]
 })
 export class SharedModule { }
