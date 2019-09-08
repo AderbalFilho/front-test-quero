@@ -6,7 +6,7 @@ import {
   OnInit,
   Output
 } from '@angular/core';
-import { FormGroup, AbstractControl } from '@angular/forms';
+import { FormGroup, AbstractControl, FormBuilder } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
 
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
@@ -18,7 +18,7 @@ import { Subject } from 'rxjs';
   styleUrls: ['./input-checkbox.component.sass']
 })
 export class InputCheckboxComponent implements OnInit, OnDestroy {
-  @Input() form: FormGroup;
+  @Input() form?: FormGroup;
   @Input() key: string;
   @Output() changeInput = new EventEmitter();
 
@@ -27,13 +27,18 @@ export class InputCheckboxComponent implements OnInit, OnDestroy {
 
   faCheck = faCheck;
 
-  constructor() {
+  constructor(private fb: FormBuilder) {
     this.debouncer
       .pipe(debounceTime(300))
       .subscribe((val) => this.changeInput.emit(val));
   }
 
   ngOnInit() {
+    if (!this.form) {
+      const obj = {};
+      obj[this.key] = [false, []];
+      this.form = this.fb.group(obj);
+    }
     this.inputControl = this.form.get(this.key) as AbstractControl;
   }
 
@@ -44,7 +49,7 @@ export class InputCheckboxComponent implements OnInit, OnDestroy {
   modelChanged(newValue) {
     if (newValue !== null) {
       this.inputControl.setValue(newValue);
-      this.debouncer.next(newValue);
+      this.debouncer.next({ value: newValue, key: this.key.slice(5) });
     }
   }
 

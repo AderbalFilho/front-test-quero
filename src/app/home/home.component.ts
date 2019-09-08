@@ -49,7 +49,8 @@ export class HomeComponent implements OnInit {
       studyModalityPresential: [true, []],
       studyModalityDistance: [true, []],
       paymentRange: [10000, []],
-      order: ['name', []]
+      order: ['name', []],
+      scholarshipList: [[], []]
     });
 
     this.scholarshipService.getScholarships()
@@ -72,6 +73,7 @@ export class HomeComponent implements OnInit {
       this.form.get('studyModalityDistance').setValue(true);
       this.form.get('paymentRange').setValue(10000);
       this.form.get('order').setValue('name');
+      this.form.get('scholarshipList').setValue([]);
       // Get the cities and courses arrays again, because selects were reseted
       this.cities = this.separateToSelect(this.scholarshipsFiltered, ['campus', 'city']);
       this.courses = this.separateToSelect(this.scholarshipsFiltered, ['course', 'name']);

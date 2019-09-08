@@ -1,0 +1,22 @@
+<hr />
+<div *ngFor="let option of options; let i = index">
+  <div class="content">
+    <div class="content__university">
+      <app-input-checkbox [form]="formList" [key]="'check'+i" (changeInput)="mark($event)"></app-input-checkbox>
+      <div class="content__logo">
+        <img [src]="option.university.logo_url" alt="Logo da faculdade">
+      </div>
+    </div>
+    <div class="content__description">
+      <div class="content__description-course">
+        <h4>{{option.course.name}}</h4>
+        <p class="content__description-level">{{option.course.level}}</p>
+      </div>
+      <div class="content__description-discount">
+        <p>Bolsa de <span class="discount">{{option.discount_percentage}}%</span></p>
+        <p class="discount">R$ {{option.price_with_discount | number:'':'es'}}/mês</p>
+      </div>
+    </div>
+  </div>
+  <hr />
+</div>

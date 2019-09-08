@@ -1,0 +1,49 @@
+// Constants
+$secondary-blue: #007A8D
+$background-grey: #FBFBFB
+$green: #0FA866
+$text-black: #1F2D30
+
+hr
+  background-color: $background-grey
+
+.content
+  display: flex
+  flex: 1 0
+  justify-content: space-between
+  padding: 5px 0
+  .content__university
+    align-items: center
+    display: flex
+    flex: 1 0
+    padding-right: 30px
+    width: 100%
+    .content__logo
+      align-items: center
+      display: flex
+      flex-direction: column
+      width: 100%
+      img
+        max-height: 50px
+        max-width: 100px
+  .content__description
+    display: flex
+    flex: 1 0
+    flex-direction: column
+    justify-content: space-between
+    width: 100%
+    p
+      color: $text-black
+      margin: 3px 0
+    h4
+      color: $secondary-blue
+      margin: 3px 0
+    .content__description-course
+      margin-bottom: 10px
+    .content__description-discount
+      margin-top: 10px
+    .content__description-level
+      font-size: 14px
+    .discount
+      color: $green
+      font-weight: bold

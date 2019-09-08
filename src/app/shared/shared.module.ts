@@ -11,6 +11,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { InputCheckboxComponent } from './inputs/input-checkbox/input-checkbox.component';
 import { InputRangeComponent } from './inputs/input-range/input-range.component';
 import { InputButtonGroupComponent } from './inputs/input-button-group/input-button-group.component';
+import { ScholarshipListComponent } from './scholarship-list/scholarship-list.component';
 
 @NgModule({
   imports: [
@@ -25,14 +26,16 @@ import { InputButtonGroupComponent } from './inputs/input-button-group/input-but
     InputSelectComponent,
     InputCheckboxComponent,
     InputRangeComponent,
-    InputButtonGroupComponent
+    InputButtonGroupComponent,
+    ScholarshipListComponent
   ],
   providers: [
     ModalComponent,
     InputSelectComponent,
     InputCheckboxComponent,
     InputRangeComponent,
-    InputButtonGroupComponent
+    InputButtonGroupComponent,
+    ScholarshipListComponent
   ],
   exports: [
     CommonModule,
@@ -41,7 +44,8 @@ import { InputButtonGroupComponent } from './inputs/input-button-group/input-but
     InputSelectComponent,
     InputCheckboxComponent,
     InputRangeComponent,
-    InputButtonGroupComponent
+    InputButtonGroupComponent,
+    ScholarshipListComponent
   ]
 })
 export class SharedModule { }
