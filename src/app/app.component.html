@@ -2,17 +2,26 @@
   <div>
     <header>
       <div class="topnav">
-        <a href="#">
-          <div class="topnav__left">
+        <a href="#" class="topnav__left">
+          <div class="topnav__left-help">
             <fa-icon [icon]="faInfoCircle"></fa-icon>
-            Ajuda
+            <span class="topnav__left-help__help">Ajuda</span>
+            <span class="topnav__left-help__how">Como funciona</span>
+          </div>
+          <div class="topnav__left-message">
+            <fa-icon [icon]="faWhatsapp"></fa-icon>
+            <div class="topnav__left-message__phone">
+              <p class="topnav__left-message__phone-number">0800 123 2222</p>
+              <p class="topnav__left-message__phone-message">Envie mensagem ou ligue</p>
+            </div>
           </div>
         </a>
         <img src="assets/img/logo-querobolsa.svg" alt="Logo Quero Bolsa" />
-        <a href="#">
-          <div class="topnav__right">
+        <a href="#" class="topnav__right">
+          <div class="topnav__right-profile">
+            <span class="topnav__right-profile__name">Nome Sobrenome</span>
             <fa-icon [icon]="faUserCircle"></fa-icon>
-            Conta
+            <span class="topnav__right-profile__account">Conta</span>
           </div>
         </a>
       </div>
