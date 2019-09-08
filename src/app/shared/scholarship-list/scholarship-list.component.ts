@@ -41,12 +41,11 @@ export class ScholarshipListComponent implements OnInit, OnDestroy {
     const key = parseInt(marked.key, 10);
     if (marked.value) {
       this.inputControl.setValue(this.inputControl.value.concat(this.options[key]));
-      this.debouncer.next(this.inputControl.value);
     } else {
       const markedOption = JSON.stringify(this.options[key]);
       this.inputControl.setValue(this.inputControl.value.filter(option => markedOption !== JSON.stringify(option)));
-      this.debouncer.next(this.inputControl.value);
     }
+    this.debouncer.next(this.inputControl.value);
   }
 
 }

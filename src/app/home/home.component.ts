@@ -96,6 +96,14 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  getScholarshipsList(list: Array<any>) {
+    if (list.length > 0) {
+      this.addDisabled = false;
+    } else {
+      this.addDisabled = true;
+    }
+  }
+
   separateToButtonGroup(parentArray: Array<object>, nodes: Array<string>) {
     let options: Array<string | SemesterItem> = [];
     parentArray.forEach(childArray => {

@@ -1,1 +1,1 @@
-<button class="button" [ngClass]="classObject">{{label}}</button>
+<button [class]="'button ' + colorClass" [ngClass]="{ disabled: this.disabled }">{{label}}</button>

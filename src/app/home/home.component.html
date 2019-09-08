@@ -54,10 +54,11 @@
   </div>
   <app-input-select style="display: flex; width: 100%;align-items: flex-end" name="order" [styles]="styles"
     [options]="orderArray" [form]="form" key="order" [unbordered]="true"></app-input-select>
-  <app-scholarship-list [options]="scholarshipsFiltered" [form]="form" key="scholarshipList"></app-scholarship-list>
+  <app-scholarship-list [options]="scholarshipsFiltered" [form]="form" key="scholarshipList"
+    (changeInput)="getScholarshipsList($event)"></app-scholarship-list>
   <div class="flex-between">
     <app-button [form]="form" key="cancel" label="Cancelar" colorClass="outline-blue"></app-button>
-    <app-button [form]="form" key="add" label="Adicionar bolsa(s)" colorClass="yellow" [disabled]="addDisabled">
+    <app-button [form]="form" key="add" label="Adicionar bolsa(s)" colorClass="yellow" [(disabled)]="addDisabled">
     </app-button>
   </div>
 </ng-template>

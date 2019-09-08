@@ -28,8 +28,6 @@ export class ButtonComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.inputControl = this.form.get(this.key) as AbstractControl;
-    this.classObject = { disabled: this.disabled };
-    this.classObject[this.colorClass] = !this.disabled;
   }
 
   ngOnDestroy(): void {
