@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit {
   orderArray: Array<{ value: string, label: string }> = [{ value: 'name', label: 'Nome da Faculdade' }];
   scholarships: Array<Scholarship> = [];
   scholarshipsFiltered: Array<Scholarship> = [];
+  scholarshipsList: Array<Scholarship> = [];
   semesters: Array<GroupButtonItem> = [];
   styles = { width: '60%' };
 
@@ -60,6 +61,7 @@ export class HomeComponent implements OnInit {
       .subscribe(scholarships => {
         this.scholarships = scholarships;
         this.scholarshipsFiltered = scholarships;
+        this.scholarshipsList = scholarships;
         this.semesters = this.separateToButtonGroup(this.scholarshipsFiltered, ['enrollment_semester']);
         this.cities = this.separateToSelect(this.scholarshipsFiltered, ['campus', 'city']);
         this.courses = this.separateToSelect(this.scholarshipsFiltered, ['course', 'name']);
@@ -77,15 +79,11 @@ export class HomeComponent implements OnInit {
       this.form.get('paymentRange').setValue(10000);
       this.form.get('order').setValue('name');
       this.form.get('scholarshipList').setValue([]);
+      this.changeList();
       // Get the cities and courses arrays again, because selects were reseted
       this.cities = this.separateToSelect(this.scholarshipsFiltered, ['campus', 'city']);
       this.courses = this.separateToSelect(this.scholarshipsFiltered, ['course', 'name']);
     }
-  }
-
-  cityChanged(newCity: string) {
-    this.courses = this.separateToSelect(this.scholarshipsFiltered, ['course', 'name'],
-      { nodes: ['campus', 'city'], conditionalValue: newCity });
   }
 
   semesterChanged(newSemester: string) {
@@ -93,6 +91,42 @@ export class HomeComponent implements OnInit {
       this.scholarshipsFiltered = this.scholarships;
     } else {
       this.scholarshipsFiltered = this.scholarships.filter(scholarship => newSemester === scholarship.enrollment_semester);
+      this.scholarshipsList = this.scholarshipsFiltered;
+    }
+  }
+
+  cityChanged(newCity: string) {
+    this.courses = this.separateToSelect(this.scholarshipsFiltered, ['course', 'name'],
+      { nodes: ['campus', 'city'], conditionalValue: newCity });
+    this.changeList();
+  }
+
+  changeList() {
+    const city: string = this.form.get('city').value;
+    const course: string = this.form.get('course').value;
+    const studyModalityPresential: boolean = this.form.get('studyModalityPresential').value;
+    const studyModalityDistance: boolean = this.form.get('studyModalityDistance').value;
+    const paymentRange: number = this.form.get('paymentRange').value;
+    const order: string = this.form.get('order').value;
+    this.scholarshipsList = this.scholarshipsFiltered;
+    if (city) {
+      this.scholarshipsList = this.scholarshipsList.filter(scholarship => scholarship.campus.city === city);
+    }
+    if (course) {
+      this.scholarshipsList = this.scholarshipsList.filter(scholarship => scholarship.course.name === course);
+    }
+    if (studyModalityPresential && !studyModalityDistance) {
+      this.scholarshipsList = this.scholarshipsList.filter(scholarship => scholarship.course.kind === 'Presencial');
+    } else if (studyModalityDistance && !studyModalityPresential) {
+      this.scholarshipsList = this.scholarshipsList.filter(scholarship => scholarship.course.kind === 'EaD');
+    } else if (!studyModalityDistance && !studyModalityPresential) {
+      this.scholarshipsList = [];
+      return;
+    }
+    this.scholarshipsList = this.scholarshipsList.filter(scholarship => scholarship.price_with_discount <= paymentRange);
+    if (order === 'name') {
+      this.scholarshipsList = this.scholarshipsList.sort((a: Scholarship, b: Scholarship) =>
+        (a.university.name > b.university.name) ? 1 : ((b.university.name > a.university.name) ? -1 : 0));
     }
   }
 
