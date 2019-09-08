@@ -26,7 +26,12 @@
         </a>
       </div>
       <div class="topmenu">
-        <p>Minha conta</p>
+        <div class="topmenu__nav">
+          <p>Minha conta</p>
+          <div class="topmenu__nav-items">
+            <a class="topmenu__nav-item" *ngFor="let dropdownItem of dropdownItems" href="#">{{dropdownItem}}</a>
+          </div>
+        </div>
         <div class="dropdown">
           <button class="dropdown__button">
             <div>
