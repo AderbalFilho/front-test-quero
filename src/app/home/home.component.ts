@@ -21,6 +21,7 @@ class SemesterItem extends GroupButtonItem {
   styleUrls: ['./home.component.sass']
 })
 export class HomeComponent implements OnInit {
+  addDisabled: boolean = true as boolean;
   cities: Array<{ value: string, label: string }> = [];
   courses: Array<{ value: string, label: string }> = [];
   form: FormGroup;
