@@ -1,1 +1,2 @@
-<button [class]="'button ' + colorClass" [ngClass]="{ disabled: this.disabled }" (click)="clicked()">{{label}}</button>
+<button [ngStyle]="{padding: padding}" [class]="'button ' + colorClass" [ngClass]="{ disabled: this.disabled }"
+  (click)="clicked()">{{label}}</button>

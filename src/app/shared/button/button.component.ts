@@ -9,11 +9,12 @@ import { debounceTime } from 'rxjs/operators';
   styleUrls: ['./button.component.sass']
 })
 export class ButtonComponent implements OnInit, OnDestroy {
+  @Input() colorClass: string = 'outline-black' as string;
+  @Input() disabled: boolean;
   @Input() form: FormGroup;
   @Input() key: string;
   @Input() label: string;
-  @Input() disabled: boolean;
-  @Input() colorClass: string = 'outline-black' as string;
+  @Input() padding: string = '14px 25px' as string;
   @Output() changeInput = new EventEmitter();
 
   classObject: object;
