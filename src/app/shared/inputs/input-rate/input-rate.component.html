@@ -1,6 +1,6 @@
 <div>
-  <!-- <fa-icon *ngFor="let item of stars" [icon]="faStar"></fa-icon> -->
-  <fa-icon [icon]="faStarRegular"></fa-icon>
-  <fa-icon [icon]="faStarHalf"></fa-icon>
+  <fa-icon *ngFor="let i = index; let item of stars | rangeNumber" [icon]="faStar"></fa-icon>
+  <!-- <fa-icon [icon]="faStarRegular"></fa-icon>
+  <fa-icon [icon]="faStarHalf"></fa-icon> -->
   <!-- <span *ngFor="let i = index; let letter of ['a', 'b', 'c']">{{letter}} {{i}}</span> -->
 </div>

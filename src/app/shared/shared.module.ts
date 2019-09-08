@@ -14,6 +14,7 @@ import { InputButtonGroupComponent } from './inputs/input-button-group/input-but
 import { ScholarshipListComponent } from './scholarship-list/scholarship-list.component';
 import { ButtonComponent } from './button/button.component';
 import { InputRateComponent } from './inputs/input-rate/input-rate.component';
+import { RangeNumberPipe } from './pipes/range-number.pipe';
 
 @NgModule({
   imports: [
@@ -31,7 +32,8 @@ import { InputRateComponent } from './inputs/input-rate/input-rate.component';
     InputButtonGroupComponent,
     ScholarshipListComponent,
     ButtonComponent,
-    InputRateComponent
+    InputRateComponent,
+    RangeNumberPipe
   ],
   providers: [
     ModalComponent,
