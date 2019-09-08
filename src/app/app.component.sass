@@ -198,6 +198,27 @@ footer
     font-weight: bold
     margin: 2px 2px 0 0
     padding: 10px 0
+    @media only screen and (min-width: $md)
+      flex-direction: row
+      margin: 0
+      justify-content: center
+    fa-icon
+      @media only screen and (min-width: $md)
+        align-self: center
+        margin: 0
+    .footer__subitem-description--desktop
+      display: none
+      @media only screen and (min-width: $md)
+        align-items: flex-start
+        display: flex
+        flex-direction: column
+        margin-left: 5px
+      p
+        padding: 0
+        margin: 3px 5px
+    .footer__subitem-description
+      @media only screen and (min-width: $md)
+        display: none
 
   background-color: $main-blue
   color: #FFF
@@ -207,17 +228,47 @@ footer
   fa-icon
     font-size: 20px
     margin-bottom: 5px
+    @media only screen and (min-width: $md)
+      font-size: 25px
   h4
+    display: flex
     margin: 0
     padding: 20px 0
+    justify-content: center
+    @media only screen and (min-width: $md)
+      align-items: center
+      padding: 0
+      font-size: 10px
+      height: 100px
+    .span
+      margin: 5px 0
+    fa-icon
+      align-items: center
+      display: flex
+      margin: 0 5px 5px 5px
+      @media only screen and (min-width: $md)
+        font-size: 12px
+        margin: 0 5px
   .footer__items
     @media only screen and (min-width: $md)
-
+      display: flex
+      height: 100px
+      .footer__subitem-desktop-title
+        font-size: 14px
+        @media only screen and (min-width: $lg)
+          font-size: 16px
+      .footer__subitem-desktop-subtitle
+        font-size: 10px
+        @media only screen and (min-width: $lg)
+          font-size: 12px
   .footer__first-item
     background-color: $secondary-blue
     display: flex
     flex-direction: row
     padding: 10px 0
+    @media only screen and (min-width: $md)
+      flex: 1
+      justify-content: center
     fa-icon
       align-items: center
       display: flex
@@ -225,19 +276,39 @@ footer
       justify-content: flex-end
       margin-bottom: 0
       margin-right: 10px
+      @media only screen and (min-width: $md)
+        flex: 0
+        justify-content: flex-start
+        margin: 0
     .footer__first-item__phone
       display: flex
       flex: 3
       flex-direction: column
       text-align: left
+      @media only screen and (min-width: $md)
+        display: none
       p
         margin: 0
         padding: 0
+    .footer__first-item__phone--desktop
+      display: none
+      @media only screen and (min-width: $md)
+        align-items: flex-start
+        display: flex
+        flex-direction: column
+        justify-content: center
+        margin-left: 5px
+        p
+          padding: 0
+          margin: 3px 5px
   .footer__second-item
     display: flex
     flex-direction: row
+    flex: 3
   .footer__subitem
     @extend %footer__item
   .footer__subitem--last
     @extend %footer__item
     margin: 2px 0 0 0
+    @media only screen and (min-width: $md)
+      margin: 0
