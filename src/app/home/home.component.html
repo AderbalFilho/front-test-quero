@@ -53,7 +53,7 @@
     <span>Ordenar por</span>
   </div>
   <app-input-select class="select-order" name="order" [styles]="styles" [options]="orderArray" [form]="form" key="order"
-    [unbordered]="true"></app-input-select>
+    [unbordered]="true" (changeInput)="changeOrderList()"></app-input-select>
   <app-scholarship-list [options]="scholarshipsList" [form]="form" key="scholarshipList"
     (changeInput)="getScholarshipsList($event)"></app-scholarship-list>
   <div class="flex-between">

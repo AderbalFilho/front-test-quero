@@ -27,7 +27,12 @@ export class HomeComponent implements OnInit {
   form: FormGroup;
   formButtonGroup: FormGroup;
   modalVisibility: 'none' | 'block' = 'none';
-  orderArray: Array<{ value: string, label: string }> = [{ value: 'name', label: 'Nome da Faculdade' }];
+  orderArray: Array<{ value: string, label: string }> = [
+    { value: 'name', label: 'Nome da Faculdade' },
+    { value: 'lowerPrice', label: 'Menor Preço' },
+    { value: 'higherPrice', label: 'Maior Preço' },
+    { value: 'higherScore', label: 'Melhor avaliação' }
+  ];
   scholarships: Array<Scholarship> = [];
   scholarshipsFiltered: Array<Scholarship> = [];
   scholarshipsList: Array<Scholarship> = [];
@@ -107,7 +112,6 @@ export class HomeComponent implements OnInit {
     const studyModalityPresential: boolean = this.form.get('studyModalityPresential').value;
     const studyModalityDistance: boolean = this.form.get('studyModalityDistance').value;
     const paymentRange: number = this.form.get('paymentRange').value;
-    const order: string = this.form.get('order').value;
     this.scholarshipsList = this.scholarshipsFiltered;
     if (city) {
       this.scholarshipsList = this.scholarshipsList.filter(scholarship => scholarship.campus.city === city);
@@ -124,10 +128,30 @@ export class HomeComponent implements OnInit {
       return;
     }
     this.scholarshipsList = this.scholarshipsList.filter(scholarship => scholarship.price_with_discount <= paymentRange);
-    if (order === 'name') {
-      this.scholarshipsList = this.scholarshipsList.sort((a: Scholarship, b: Scholarship) =>
-        (a.university.name > b.university.name) ? 1 : ((b.university.name > a.university.name) ? -1 : 0));
-    }
+    this.changeOrderList();
+  }
+
+  changeOrderList() {
+    const order: string = this.form.get('order').value;
+    const orderDictionary: object = {
+      name: { nodes: ['university', 'name'], type: 'asc' },
+      lowerPrice: { nodes: ['price_with_discount'], type: 'asc' },
+      higherPrice: { nodes: ['price_with_discount'], type: 'desc' },
+      higherScore: { nodes: ['university', 'score'], type: 'desc' }
+    };
+    const orderType = orderDictionary[order];
+    this.scholarshipsList = this.scholarshipsList.sort((a: Scholarship, b: Scholarship) => {
+      let aNode = a;
+      let bNode = b;
+      orderType.nodes.forEach(node => {
+        aNode = aNode[node];
+        bNode = bNode[node];
+      });
+      if (orderType.type === 'asc') {
+        return (aNode > bNode) ? 1 : ((bNode > aNode) ? -1 : 0);
+      }
+      return (aNode < bNode) ? 1 : ((bNode < aNode) ? -1 : 0);
+    });
   }
 
   getScholarshipsList(list: Array<any>) {
