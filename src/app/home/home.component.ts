@@ -36,6 +36,7 @@ export class HomeComponent implements OnInit {
   scholarships: Array<Scholarship> = [];
   scholarshipsFiltered: Array<Scholarship> = [];
   scholarshipsList: Array<Scholarship> = [];
+  scholarshipsFavorites: Array<Scholarship> = [];
   semesters: Array<GroupButtonItem> = [];
   styles = { width: '60%' };
 
@@ -46,6 +47,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.scholarshipsFavorites = JSON.parse(localStorage.getItem('favoriteCourses'));
     this.formButtonGroup = this.fb.group({
       semester: ['all', []]
     });
@@ -167,8 +169,11 @@ export class HomeComponent implements OnInit {
       this.changeModalVisibility();
     }
     if (key === 'add') {
+      this.changeModalVisibility();
+      this.scholarshipsFavorites = this.form.get('scholarshipList').value;
+      localStorage.setItem('favoriteCourses', JSON.stringify(this.scholarshipsFavorites));
       // TODO: Get list (this.form.get('scholarshipList').value) and add to new component
-      // to show list in home. Also, save list in local storage.
+      // to show list in home.
     }
   }
 
