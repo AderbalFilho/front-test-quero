@@ -14,7 +14,7 @@ import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons';
 export class InputRateComponent implements OnInit, OnDestroy {
   @Input() canChange: boolean = true as boolean;
   @Input() color: string = '#FDCB13' as string;
-  @Input() form?: FormGroup;
+  @Input() form: FormGroup;
   @Input() key: string;
   @Input() showLabel: boolean = false as boolean;
   @Input() stars: number = 5 as number;
@@ -34,11 +34,6 @@ export class InputRateComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    if (!this.form) {
-      const obj = {};
-      obj[this.key] = [false, []];
-      this.form = this.fb.group(obj);
-    }
     this.inputControl = this.form.get(this.key) as AbstractControl;
   }
 

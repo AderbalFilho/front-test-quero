@@ -15,6 +15,7 @@ import { ScholarshipListComponent } from './scholarship-list/scholarship-list.co
 import { ButtonComponent } from './button/button.component';
 import { InputRateComponent } from './inputs/input-rate/input-rate.component';
 import { RangeNumberPipe } from './pipes/range-number.pipe';
+import { SchorlarshipFavoriteComponent } from './schorlarship-favorite/schorlarship-favorite.component';
 
 @NgModule({
   imports: [
@@ -25,37 +26,40 @@ import { RangeNumberPipe } from './pipes/range-number.pipe';
     NgSelectModule
   ],
   declarations: [
-    ModalComponent,
-    InputSelectComponent,
+    ButtonComponent,
+    InputButtonGroupComponent,
     InputCheckboxComponent,
     InputRangeComponent,
-    InputButtonGroupComponent,
-    ScholarshipListComponent,
-    ButtonComponent,
     InputRateComponent,
-    RangeNumberPipe
+    InputSelectComponent,
+    ModalComponent,
+    RangeNumberPipe,
+    SchorlarshipFavoriteComponent,
+    ScholarshipListComponent
   ],
   providers: [
-    ModalComponent,
-    InputSelectComponent,
+    ButtonComponent,
+    InputButtonGroupComponent,
     InputCheckboxComponent,
     InputRangeComponent,
-    InputButtonGroupComponent,
-    ScholarshipListComponent,
-    ButtonComponent,
-    InputRateComponent
+    InputRateComponent,
+    InputSelectComponent,
+    ModalComponent,
+    SchorlarshipFavoriteComponent,
+    ScholarshipListComponent
   ],
   exports: [
+    ButtonComponent,
     CommonModule,
     FormsModule,
     ModalComponent,
-    InputSelectComponent,
+    InputButtonGroupComponent,
     InputCheckboxComponent,
     InputRangeComponent,
-    InputButtonGroupComponent,
-    ScholarshipListComponent,
-    ButtonComponent,
-    InputRateComponent
+    InputRateComponent,
+    InputSelectComponent,
+    SchorlarshipFavoriteComponent,
+    ScholarshipListComponent
   ]
 })
 export class SharedModule { }
