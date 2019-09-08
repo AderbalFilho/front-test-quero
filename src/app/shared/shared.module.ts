@@ -13,6 +13,7 @@ import { InputRangeComponent } from './inputs/input-range/input-range.component'
 import { InputButtonGroupComponent } from './inputs/input-button-group/input-button-group.component';
 import { ScholarshipListComponent } from './scholarship-list/scholarship-list.component';
 import { ButtonComponent } from './button/button.component';
+import { InputRateComponent } from './inputs/input-rate/input-rate.component';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { ButtonComponent } from './button/button.component';
     InputRangeComponent,
     InputButtonGroupComponent,
     ScholarshipListComponent,
-    ButtonComponent
+    ButtonComponent,
+    InputRateComponent
   ],
   providers: [
     ModalComponent,
@@ -38,7 +40,8 @@ import { ButtonComponent } from './button/button.component';
     InputRangeComponent,
     InputButtonGroupComponent,
     ScholarshipListComponent,
-    ButtonComponent
+    ButtonComponent,
+    InputRateComponent
   ],
   exports: [
     CommonModule,
@@ -49,7 +52,8 @@ import { ButtonComponent } from './button/button.component';
     InputRangeComponent,
     InputButtonGroupComponent,
     ScholarshipListComponent,
-    ButtonComponent
+    ButtonComponent,
+    InputRateComponent
   ]
 })
 export class SharedModule { }
