@@ -3,7 +3,7 @@ import { FormGroup, AbstractControl, FormBuilder } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
-import { faStar, faStarHalf } from '@fortawesome/free-solid-svg-icons';
+import { faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
 import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
@@ -13,8 +13,10 @@ import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons';
 })
 export class InputRateComponent implements OnInit, OnDestroy {
   @Input() canChange: boolean = true as boolean;
+  @Input() color: string = '#FDCB13' as string;
   @Input() form?: FormGroup;
   @Input() key: string;
+  @Input() showLabel: boolean = false as boolean;
   @Input() stars: number = 5 as number;
   @Output() changeInput = new EventEmitter();
 
@@ -22,7 +24,7 @@ export class InputRateComponent implements OnInit, OnDestroy {
   inputControl: AbstractControl;
 
   faStar = faStar;
-  faStarHalf = faStarHalf;
+  faStarHalfAlt = faStarHalfAlt;
   faStarRegular = faStarRegular;
 
   constructor(private fb: FormBuilder) {

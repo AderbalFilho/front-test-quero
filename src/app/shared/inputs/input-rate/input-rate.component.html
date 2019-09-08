@@ -1,6 +1,6 @@
 <div>
-  <fa-icon *ngFor="let i = index; let item of stars | rangeNumber" [icon]="faStar"></fa-icon>
-  <!-- <fa-icon [icon]="faStarRegular"></fa-icon>
-  <fa-icon [icon]="faStarHalf"></fa-icon> -->
-  <!-- <span *ngFor="let i = index; let letter of ['a', 'b', 'c']">{{letter}} {{i}}</span> -->
+  <label *ngIf="showLabel">{{this.inputControl.value | number:'0.1'}}</label>
+  <fa-icon *ngFor="let i = index; let item of stars | rangeNumber" [icon]="this.inputControl.value >= i + 1 ? faStar :
+            this.inputControl.value >= i + 0.5 ? faStarHalfAlt : faStarRegular" [ngStyle]="{color: color}"
+    [ngClass]="{'margin-left': i !== 0}"></fa-icon>
 </div>
