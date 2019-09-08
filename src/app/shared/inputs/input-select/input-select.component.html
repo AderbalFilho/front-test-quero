@@ -1,0 +1,5 @@
+<label *ngIf="label">{{label}}</label>
+<ng-select [ngClass]="{unbordered: unbordered}" [items]="options" [clearable]="false" bindLabel="label"
+  bindValue="value" autofocus [(ngModel)]="this.inputControl.value" (ngModelChange)="modelChanged($event)"
+  [ngStyle]="styles">
+</ng-select>

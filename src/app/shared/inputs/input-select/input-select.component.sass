@@ -1,0 +1,24 @@
+// Constants
+$secondary-blue: #007A8D
+
+label
+  font-size: 14px
+  font-weight: bold
+
+.ng-select.unbordered ::ng-deep .ng-select-container
+  border: none
+  color: $secondary-blue
+  .ng-value-container 
+    display: flex
+    justify-content: flex-end
+  .ng-arrow
+    border-color: $secondary-blue transparent transparent
+.ng-select-opened.unbordered ::ng-deep .ng-select-container
+  .ng-arrow
+    border-color: transparent transparent $secondary-blue
+
+.ng-select.unbordered ::ng-deep .ng-dropdown-panel-items
+  .ng-option
+    color: $secondary-blue
+    display: flex
+    justify-content: flex-end

@@ -75,3 +75,40 @@ $modal-overlay: #1F2D30 // opacity 88%
     .btn-group--last
       border-radius: 0 0 5px 5px
       border-top: none
+
+app-input-select
+  display: flex
+  flex-direction: column
+  margin-bottom: 20px
+
+.label-title
+  font-size: 14px
+  font-weight: bold
+
+%flex-row
+  display: flex
+  flex-direction: row
+
+.study-modality
+  @extend %flex-row
+  margin: 20px 0
+  .study-modality__first
+    @extend %flex-row
+    label
+      margin-left: 5px
+  .study-modality__last
+    @extend %flex-row
+    margin-left: 20px
+    label
+      margin-left: 5px
+
+.flex-between
+  display: flex
+  flex-direction: row
+  font-weight: bold
+  justify-content: space-between
+
+.select-order
+  align-items: flex-end
+  display: flex
+  width: 100%

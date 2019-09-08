@@ -1,0 +1,7 @@
+<div class="btn-group">
+  <button *ngFor="let option of options; let i = index"
+    [ngClass]="{'button__active': this.inputControl.value === option.option, 'btn-group--first': i === 0, 'btn-group--last': i === options.length - 1}"
+    (click)="click(option.option)">
+    {{option.description}}
+  </button>
+</div>

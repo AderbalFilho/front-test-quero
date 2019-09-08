@@ -6,7 +6,8 @@ import {
   faChevronDown,
   faHeart,
   faComments,
-  faEnvelope
+  faEnvelope,
+  faTimes
 } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
@@ -23,4 +24,5 @@ export class AppComponent {
   faComments = faComments;
   faEnvelope = faEnvelope;
   faWhatsapp = faWhatsapp;
+  faTimes = faTimes;
 }

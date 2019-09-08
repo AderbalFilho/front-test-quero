@@ -1,0 +1,6 @@
+<div class="slidecontainer">
+  <label *ngIf="label">{{label}}</label>
+  <p *ngIf="showValue">{{prefixValue}}{{this.inputControl.value | number:'':'es'}}{{sufixValue}}</p>
+  <input type="range" [min]="minRange" [max]="maxRange" [(ngModel)]="this.inputControl.value"
+    (ngModelChange)="modelChanged($event)" class="slider">
+</div>
