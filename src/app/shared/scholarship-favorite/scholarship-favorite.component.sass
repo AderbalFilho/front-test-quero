@@ -1,0 +1,72 @@
+// Constants
+$secondary-blue: #007A8D
+$green: #0FA866
+$text-black: #1F2D30
+$background-grey: #FBFBFB
+
+hr
+  background-color: $background-grey
+
+.favorite
+  align-items: center
+  box-shadow: 0 3px 10px 0 lightgrey
+  color: $text-black
+  display: flex
+  flex-direction: column
+  margin-bottom: 20px
+  padding: 10px 0
+  text-align: center
+  .favorite--container
+    width: 100%
+    .favorite__items
+      margin: 0 20px
+      .favorite__items-img
+        align-items: center
+        display: flex
+        height: 70px
+        justify-content: center
+        margin-bottom: 20px
+        img
+          max-height: 50px
+          max-width: 200px
+      .favorite__items-course
+        h3
+          color: $secondary-blue
+          margin: 5px 0
+          padding: 0
+        h5
+          margin: 5px 0
+          padding: 0
+        .favorite__items-course__score
+          margin: 15px 0
+      .favorite__items-details
+        h5
+          display: flex
+          justify-content: center
+          margin: 20px 0
+          padding: 0
+          .favorite__items-details__icon
+            align-items: center
+            display: flex
+            font-size: 5px
+            margin: 0 5px
+        p
+          font-size: 14px
+          margin: 0 0 20px 0
+          padding: 0
+      .favorite__items-values
+        h5
+          margin: 20px 0 15px 0
+        span
+          color: $green
+          font-size: 20px
+          font-weight: bold
+        p
+          font-size: 10px
+          margin: 5px 0
+    .flex-between
+      display: flex
+      flex-direction: row
+      font-weight: bold
+      justify-content: space-between
+      margin: 20px 20px 5px 20px

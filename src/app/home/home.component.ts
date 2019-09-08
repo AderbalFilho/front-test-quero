@@ -36,6 +36,7 @@ export class HomeComponent implements OnInit {
   scholarships: Array<Scholarship> = [];
   scholarshipsFiltered: Array<Scholarship> = [];
   scholarshipsList: Array<Scholarship> = [];
+  scholarshipsFavorites: Array<Scholarship> = [];
   semesters: Array<GroupButtonItem> = [];
   styles = { width: '60%' };
 
@@ -46,6 +47,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.scholarshipsFavorites = JSON.parse(localStorage.getItem('favoriteCourses'));
     this.formButtonGroup = this.fb.group({
       semester: ['all', []]
     });
@@ -167,8 +169,20 @@ export class HomeComponent implements OnInit {
       this.changeModalVisibility();
     }
     if (key === 'add') {
-      // TODO: Get list (this.form.get('scholarshipList').value) and add to new component
-      // to show list in home. Also, save list in local storage.
+      this.changeModalVisibility();
+      const scholarshipList = this.form.get('scholarshipList').value.filter(scholarship => {
+        let duplicated: boolean = false as boolean;
+        const duplicatedJSON = JSON.stringify(scholarship);
+        this.scholarshipsFavorites.forEach(favoriteScholarship => {
+          if (duplicatedJSON === JSON.stringify(favoriteScholarship)) {
+            duplicated = true;
+            return;
+          }
+        });
+        return !duplicated;
+      });
+      this.scholarshipsFavorites = this.scholarshipsFavorites.concat(scholarshipList);
+      localStorage.setItem('favoriteCourses', JSON.stringify(this.scholarshipsFavorites));
     }
   }
 
@@ -233,5 +247,10 @@ export class HomeComponent implements OnInit {
     return options.map(option => {
       return { value: option, label: option };
     }) as Array<{ value: string, label: string }>;
+  }
+
+  deleteScholarship(scholarship: { value: Scholarship, key: string }) {
+    this.scholarshipsFavorites.splice(parseInt(scholarship.key.slice(9), 10), 1);
+    localStorage.setItem('favoriteCourses', JSON.stringify(this.scholarshipsFavorites));
   }
 }
