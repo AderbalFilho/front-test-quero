@@ -104,6 +104,16 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  buttonClicked(key: string) {
+    if (key === 'cancel') {
+      this.changeModalVisibility();
+    }
+    if (key === 'add') {
+      // TODO: Get list (this.form.get('scholarshipList').value) and add to new component
+      // to show list in home. Also, save list in local storage.
+    }
+  }
+
   separateToButtonGroup(parentArray: Array<object>, nodes: Array<string>) {
     let options: Array<string | SemesterItem> = [];
     parentArray.forEach(childArray => {

@@ -57,8 +57,10 @@
   <app-scholarship-list [options]="scholarshipsFiltered" [form]="form" key="scholarshipList"
     (changeInput)="getScholarshipsList($event)"></app-scholarship-list>
   <div class="flex-between">
-    <app-button [form]="form" key="cancel" label="Cancelar" colorClass="outline-blue"></app-button>
-    <app-button [form]="form" key="add" label="Adicionar bolsa(s)" colorClass="yellow" [(disabled)]="addDisabled">
+    <app-button [form]="form" key="cancel" label="Cancelar" colorClass="outline-blue"
+      (changeInput)="buttonClicked($event)"></app-button>
+    <app-button [form]="form" key="add" label="Adicionar bolsa(s)" colorClass="yellow" [(disabled)]="addDisabled"
+      (changeInput)="buttonClicked($event)">
     </app-button>
   </div>
 </ng-template>

@@ -34,4 +34,10 @@ export class ButtonComponent implements OnInit, OnDestroy {
     this.debouncer.unsubscribe();
   }
 
+  clicked() {
+    if (!this.disabled) {
+      this.debouncer.next(this.key);
+    }
+  }
+
 }
