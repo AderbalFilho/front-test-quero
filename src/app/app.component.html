@@ -29,7 +29,8 @@
         <div class="topmenu__nav">
           <p>Minha conta</p>
           <div class="topmenu__nav-items">
-            <a class="topmenu__nav-item" *ngFor="let dropdownItem of dropdownItems" href="#">{{dropdownItem}}</a>
+            <a *ngFor="let dropdownItem of dropdownItems" class="topmenu__nav-item"
+              [ngClass]="{active: dropdownItem.active}" href="#">{{dropdownItem.value}}</a>
           </div>
         </div>
         <div class="dropdown">
@@ -40,7 +41,7 @@
             </div>
           </button>
           <div class="dropdown__content">
-            <a *ngFor="let dropdownItem of dropdownItems" href="#">{{dropdownItem}}</a>
+            <a *ngFor="let dropdownItem of dropdownItems" href="#">{{dropdownItem.value}}</a>
           </div>
         </div>
       </div>
@@ -55,22 +56,42 @@
           <p>0800 123 2222</p>
           <p>Segunda a sexta de 8h às 22h</p>
         </div>
+        <div class="footer__first-item__phone--desktop">
+          <p class="footer__subitem-desktop-title">0800 123 2222</p>
+          <p class="footer__subitem-desktop-subtitle">Seg - Sex 8h-22h</p>
+        </div>
       </div>
       <div class="footer__second-item">
         <div class="footer__subitem">
           <fa-icon [icon]="faComments"></fa-icon>
-          Chat
+          <span class="footer__subitem-description">Chat</span>
+          <div class="footer__subitem-description--desktop">
+            <p class="footer__subitem-desktop-title">Chat ao vivo</p>
+            <p class="footer__subitem-desktop-subtitle">Seg - Sex 8h-22h</p>
+          </div>
         </div>
         <div class="footer__subitem">
           <fa-icon [icon]="faEnvelope"></fa-icon>
-          E-mail
+          <span class="footer__subitem-description">E-mail</span>
+          <div class="footer__subitem-description--desktop">
+            <p class="footer__subitem-desktop-title">Mande um e-mail</p>
+            <p class="footer__subitem-desktop-subtitle">Respondemos rapidinho</p>
+          </div>
         </div>
         <div class="footer__subitem--last">
           <fa-icon [icon]="faInfoCircle"></fa-icon>
-          Ajuda
+          <span class="footer__subitem-description">Ajuda</span>
+          <div class="footer__subitem-description--desktop">
+            <p class="footer__subitem-desktop-title">Central de ajuda</p>
+            <p class="footer__subitem-desktop-subtitle">Encontre todas as respostas</p>
+          </div>
         </div>
       </div>
     </div>
-    <h4>Feito com <fa-icon [icon]="faHeart"></fa-icon> pela Quero Educação</h4>
+    <h4>
+      <span>Feito com </span>
+      <fa-icon [icon]="faHeart"></fa-icon>
+      <span> pela Quero Educação</span>
+    </h4>
   </footer>
 </div>
