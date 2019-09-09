@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgSelectModule } from '@ng-select/ng-select';
 
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { ButtonComponent } from './button/button.component';
 import { InputButtonGroupComponent } from './inputs/input-button-group/input-button-group.component';
 import { InputCheckboxComponent } from './inputs/input-checkbox/input-checkbox.component';
@@ -26,6 +27,7 @@ import { ScholarshipListComponent } from './scholarship-list/scholarship-list.co
   ],
   declarations: [
     ButtonComponent,
+    BreadcrumbComponent,
     InputButtonGroupComponent,
     InputCheckboxComponent,
     InputRangeComponent,
@@ -38,6 +40,7 @@ import { ScholarshipListComponent } from './scholarship-list/scholarship-list.co
   ],
   providers: [
     ButtonComponent,
+    BreadcrumbComponent,
     InputButtonGroupComponent,
     InputCheckboxComponent,
     InputRangeComponent,
@@ -49,6 +52,7 @@ import { ScholarshipListComponent } from './scholarship-list/scholarship-list.co
   ],
   exports: [
     ButtonComponent,
+    BreadcrumbComponent,
     CommonModule,
     FormsModule,
     ModalComponent,

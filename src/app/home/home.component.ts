@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
   courses: Array<{ value: string, label: string }> = [];
   form: FormGroup;
   formButtonGroup: FormGroup;
+  formBreadcrumb: FormGroup;
   modalVisibility: 'none' | 'block' = 'none';
   orderArray: Array<{ value: string, label: string }> = [
     { value: 'name', label: 'Nome da Faculdade' },
@@ -34,6 +35,7 @@ export class HomeComponent implements OnInit {
     { value: 'higherScore', label: 'Melhor avaliação' }
   ];
   scholarships: Array<Scholarship> = [];
+  scholarshipsFavoritesFiltered: Array<Scholarship> = [];
   scholarshipsFiltered: Array<Scholarship> = [];
   scholarshipsList: Array<Scholarship> = [];
   scholarshipsFavorites: Array<Scholarship> = [];
@@ -48,8 +50,15 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.scholarshipsFavorites = JSON.parse(localStorage.getItem('favoriteCourses'));
+    this.scholarshipsFavorites = this.scholarshipsFavorites ? this.scholarshipsFavorites : [];
+    this.scholarshipsFavoritesFiltered = this.scholarshipsFavorites;
+
     this.formButtonGroup = this.fb.group({
       semester: ['all', []]
+    });
+
+    this.formBreadcrumb = this.fb.group({
+      breadcrumb: [['Home', 'Minha conta', 'Bolsas favoritas'], []]
     });
 
     this.form = this.fb.group({
@@ -96,9 +105,18 @@ export class HomeComponent implements OnInit {
   semesterChanged(newSemester: string) {
     if (newSemester === 'all') {
       this.scholarshipsFiltered = this.scholarships;
+      this.scholarshipsFavoritesFiltered = this.scholarshipsFavorites;
     } else {
       this.scholarshipsFiltered = this.scholarships.filter(scholarship => newSemester === scholarship.enrollment_semester);
       this.scholarshipsList = this.scholarshipsFiltered;
+      const semester: string = this.formButtonGroup.get('semester').value;
+      if (semester !== 'all') {
+        this.scholarshipsFavoritesFiltered = this.scholarshipsFavorites.filter(scholarshipFav => {
+          return scholarshipFav.enrollment_semester === semester;
+        });
+      } else {
+        this.scholarshipsFavoritesFiltered = this.scholarshipsFavorites;
+      }
     }
   }
 
@@ -182,6 +200,16 @@ export class HomeComponent implements OnInit {
         return !duplicated;
       });
       this.scholarshipsFavorites = this.scholarshipsFavorites.concat(scholarshipList);
+      const semester: string = this.formButtonGroup.get('semester').value;
+      if (semester !== 'all') {
+        scholarshipList.forEach(scholarship => {
+          if (scholarship.enrollment_semester === semester) {
+            this.scholarshipsFavoritesFiltered.concat(scholarship);
+          }
+        });
+      } else {
+        this.scholarshipsFavoritesFiltered = this.scholarshipsFavorites;
+      }
       localStorage.setItem('favoriteCourses', JSON.stringify(this.scholarshipsFavorites));
     }
   }
@@ -250,7 +278,18 @@ export class HomeComponent implements OnInit {
   }
 
   deleteScholarship(scholarship: { value: Scholarship, key: string }) {
-    this.scholarshipsFavorites.splice(parseInt(scholarship.key.slice(9), 10), 1);
+    const semester: string = this.formButtonGroup.get('semester').value;
+    if (semester !== 'all') {
+      this.scholarshipsFavorites = this.scholarshipsFavorites.filter(scholarshipFav => {
+        return JSON.stringify(scholarshipFav) !== JSON.stringify(scholarship.value);
+      });
+      this.scholarshipsFavoritesFiltered = this.scholarshipsFavorites.filter(scholarshipFav => {
+        return scholarshipFav.enrollment_semester === semester;
+      });
+    } else {
+      this.scholarshipsFavorites.splice(parseInt(scholarship.key.slice(9), 10), 1);
+      this.scholarshipsFavoritesFiltered = this.scholarshipsFavorites;
+    }
     localStorage.setItem('favoriteCourses', JSON.stringify(this.scholarshipsFavorites));
   }
 }

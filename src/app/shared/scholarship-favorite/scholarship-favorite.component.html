@@ -34,9 +34,10 @@
       </div>
     </div>
     <div class="flex-between">
-      <app-button [form]="form" padding="14px 25px" key="delete" label="Excluir" colorClass="outline-blue"
-        (changeInput)="buttonClicked($event)"></app-button>
-      <app-button [form]="form" padding="14px 50px" key="seeOffer" [disabled]="!this.inputControl.value.enabled"
+      <app-button [form]="form" [padding]="paddingDelete" [size]="sizeDelete" key="delete" label="Excluir"
+        colorClass="outline-blue" (changeInput)="buttonClicked($event)"></app-button>
+      <app-button [form]="form" [padding]="paddingSeeOffer" [size]="sizeSeeOffer" key="seeOffer"
+        [disabled]="!this.inputControl.value.enabled"
         [label]="this.inputControl.value.enabled ? 'Ver oferta' : 'Indisponível'" colorClass="yellow"
         (changeInput)="buttonClicked($event)">
       </app-button>
