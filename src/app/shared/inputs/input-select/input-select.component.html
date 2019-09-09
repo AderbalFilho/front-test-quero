@@ -1,4 +1,4 @@
 <label *ngIf="label">{{label}}</label>
 <ng-select [ngClass]="{unbordered: unbordered}" [items]="options" [clearable]="false" bindLabel="label"
-  bindValue="value" autofocus [(ngModel)]="value" (ngModelChange)="modelChanged($event)" [ngStyle]="styles">
+  bindValue="value" autofocus [formControl]="inputControl" (ngModelChange)="modelChanged($event)" [ngStyle]="styles">
 </ng-select>
