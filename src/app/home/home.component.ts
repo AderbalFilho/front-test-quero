@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
   courses: Array<{ value: string, label: string }> = [];
   form: FormGroup;
   formButtonGroup: FormGroup;
+  formBreadcrumb: FormGroup;
   modalVisibility: 'none' | 'block' = 'none';
   orderArray: Array<{ value: string, label: string }> = [
     { value: 'name', label: 'Nome da Faculdade' },
@@ -48,8 +49,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.scholarshipsFavorites = JSON.parse(localStorage.getItem('favoriteCourses'));
+
     this.formButtonGroup = this.fb.group({
       semester: ['all', []]
+    });
+
+    this.formBreadcrumb = this.fb.group({
+      breadcrumb: [['Home', 'Minha conta', 'Bolsas favoritas'], []]
     });
 
     this.form = this.fb.group({
