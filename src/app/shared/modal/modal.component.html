@@ -1,5 +1,5 @@
 <div class="modal">
-  <fa-icon class="modal__close" [icon]="faTimes" (click)="close()"></fa-icon>
+  <fa-icon class="modal__close" [icon]="faTimes" (click)="close($event)"></fa-icon>
   <div class="modal__content">
     <div class="modal__body">
       <ng-container [ngTemplateOutlet]="modalBody"></ng-container>
