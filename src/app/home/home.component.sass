@@ -103,30 +103,87 @@ app-breadcrumb
     @media only screen and (min-width: $md)
       display: none
 
-.label-title
-  font-size: 14px
-  font-weight: bold
+.modal-body
+  h3
+    @media only screen and (min-width: $lg)
+      font-size: 25px
+      margin-bottom: 0
+  p
+    @media only screen and (min-width: $lg)
+      font-size: 16px
+      margin: 5px 0 40px 0
 
-.study-modality
-  @extend %flex-row
-  margin: 20px 0
-  .study-modality__first
-    @extend %flex-row
-    label
-      margin-left: 5px
-  .study-modality__last
-    @extend %flex-row
-    margin-left: 20px
-    label
-      margin-left: 5px
+  .flex-between
+    display: flex
+    flex-direction: row
+    font-weight: bold
+    justify-content: space-between
+  
+  .flex-between.flex-between__order
+    display: flex
+    flex-direction: column
+  
+  .flex-between__order
+    @media only screen and (min-width: $md)
+      display: flex
+      justify-content: flex-end
+    span
+      display: flex
+      flex: 0 0 auto
+      justify-content: flex-end
+      @media only screen and (min-width: $md)
+        align-self: center
+    app-input-select
+      @media only screen and (min-width: $md)
+        margin: 0
+  
+  .flex-between__result
+    @media only screen and (min-width: $md)
+        align-self: center
 
-.flex-between
-  display: flex
-  flex-direction: row
-  font-weight: bold
-  justify-content: space-between
+  .flex-between.buttons
+    @media only screen and (min-width: $md)
+      justify-content: flex-end
 
-.select-order
-  align-items: flex-end
-  display: flex
-  width: 100%
+  .select-order
+    align-items: flex-end
+    display: flex
+    width: 100%
+
+  .modal-filters__select
+    @media only screen and (min-width: $lg)
+      display: flex
+      justify-content: flex-start
+    app-input-select.shink-desktop
+      @media only screen and (min-width: $lg)
+        width: 48%
+    .course-select
+      @media only screen and (min-width: $lg)
+        margin-left: 2%
+
+  .modal-filters__modality
+    @media only screen and (min-width: $lg)
+      display: flex
+      justify-content: flex-start
+    app-input-range.shink-desktop
+      @media only screen and (min-width: $lg)
+        margin-left: 2%
+        width: 48%
+    .modal-filters__modality-study
+      @media only screen and (min-width: $lg)
+        width: 48%
+    .label-title
+      font-size: 14px
+      font-weight: bold
+    .study-modality
+      @extend %flex-row
+      margin: 20px 0
+      .study-modality__first
+        @extend %flex-row
+        label
+          margin-left: 5px
+      .study-modality__last
+        @extend %flex-row
+        margin-left: 20px
+        label
+          margin-left: 5px
