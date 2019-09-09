@@ -17,7 +17,7 @@ export class InputRateComponent implements OnInit, OnDestroy {
   @Input() form: FormGroup;
   @Input() key: string;
   @Input() showLabel: boolean = false as boolean;
-  @Input() stars: number = 5 as number;
+  @Input() stars: number | Array<number> = 5 as number;
   @Output() changeInput = new EventEmitter();
 
   debouncer: Subject<any> = new Subject();
@@ -35,6 +35,11 @@ export class InputRateComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.inputControl = this.form.get(this.key) as AbstractControl;
+    const starsArray = [];
+    for (let i = 0; i < this.stars; i++) {
+      starsArray.push(i);
+    }
+    this.stars = starsArray;
   }
 
   ngOnDestroy(): void {
