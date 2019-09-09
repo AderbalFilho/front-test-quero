@@ -22,6 +22,7 @@ export class InputSelectComponent implements OnInit, OnDestroy {
   debouncer: Subject<any> = new Subject();
   inputControl: AbstractControl;
   selectedItem?: string;
+  value: any;
 
   constructor(private config: NgSelectConfig) {
     this.debouncer
@@ -32,6 +33,7 @@ export class InputSelectComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.inputControl = this.form.get(this.key) as AbstractControl;
+    this.value = this.inputControl.value;
   }
 
   ngOnDestroy(): void {
@@ -40,6 +42,7 @@ export class InputSelectComponent implements OnInit, OnDestroy {
 
   modelChanged(newValue) {
     if (newValue !== null) {
+      this.inputControl.setValue(this.value);
       this.debouncer.next(newValue);
     }
   }
