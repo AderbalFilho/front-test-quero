@@ -4,6 +4,9 @@ $green: #0FA866
 $text-black: #1F2D30
 $background-grey: #FBFBFB
 
+$md: 768px
+$lg: 992px
+
 hr
   background-color: $background-grey
 
@@ -16,8 +19,18 @@ hr
   margin-bottom: 20px
   padding: 10px 0
   text-align: center
+  @media only screen and (min-width: $md)
+    width: 250px
+    margin-left: 20px
   .favorite--container
     width: 100%
+    @media only screen and (min-width: $md)
+      display: flex
+      flex-direction: column
+      height: 400px
+      justify-content: center
+      margin: 10px 10px 10px 0
+      width: 250px
     .favorite__items
       margin: 0 20px
       .favorite__items-img
@@ -26,6 +39,8 @@ hr
         height: 70px
         justify-content: center
         margin-bottom: 20px
+        @media only screen and (min-width: $md)
+          height: 55px
         img
           max-height: 50px
           max-width: 200px
@@ -34,6 +49,8 @@ hr
           color: $secondary-blue
           margin: 5px 0
           padding: 0
+          @media only screen and (min-width: $md)
+            font-size: 14px
         h5
           margin: 5px 0
           padding: 0
@@ -70,3 +87,6 @@ hr
       font-weight: bold
       justify-content: space-between
       margin: 20px 20px 5px 20px
+      @media only screen and (min-width: $md)
+        margin: 8px 20px 5px 20px
+

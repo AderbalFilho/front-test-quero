@@ -12,18 +12,20 @@
   <app-input-button-group name="semester" [options]="semesters" [form]="formButtonGroup" key="semester"
     (changeInput)="semesterChanged($event)">
   </app-input-button-group>
-  <div class="add-scholarship" (click)="changeModalVisibility()">
-    <div class="add-scholarship__items">
-      <div>
-        <fa-icon [icon]="faPlusCircle"></fa-icon>
+  <div class="scholarship__container">
+    <div class="add-scholarship" (click)="changeModalVisibility()">
+      <div class="add-scholarship__items">
+        <div>
+          <fa-icon [icon]="faPlusCircle"></fa-icon>
+        </div>
+        <h3>Adicionar bolsa</h3>
+        <p>Clique para adicionar bolsas de cursos do seu interesse</p>
       </div>
-      <h3>Adicionar bolsa</h3>
-      <p>Clique para adicionar bolsas de cursos do seu interesse</p>
     </div>
+    <app-scholarship-favorite *ngFor="let favorite of this.scholarshipsFavorites; let i = index" [key]="'favorites'+i"
+      [value]="favorite" (changeInput)="deleteScholarship($event)">
+    </app-scholarship-favorite>
   </div>
-  <app-scholarship-favorite *ngFor="let favorite of this.scholarshipsFavorites; let i = index" [key]="'favorites'+i"
-    [value]="favorite" (changeInput)="deleteScholarship($event)">
-  </app-scholarship-favorite>
 </div>
 
 <app-modal [modalBody]="modalBody" [ngStyle]="{'display': modalVisibility}" (closeModal)="changeModalVisibility()">

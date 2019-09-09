@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, Output, EventEmitter, HostListener } from '@angular/core';
 import { FormGroup, AbstractControl, FormBuilder } from '@angular/forms';
 import { registerLocaleData } from '@angular/common';
 import es from '@angular/common/locales/es';
@@ -23,11 +23,35 @@ export class ScholarshipFavoriteComponent implements OnInit, OnDestroy {
 
   debouncer: Subject<any> = new Subject();
   inputControl: AbstractControl;
+  paddingDelete: string = '14px 25px' as string;
+  paddingSeeOffer: string = '14px 50px' as string;
+  screenHeight: any;
+  screenWidth: any;
+  sizeDelete: string = '16px' as string;
+  sizeSeeOffer: string = '16px' as string;
 
   constructor(private fb: FormBuilder) {
+    this.getScreenSize();
     this.debouncer
       .pipe(debounceTime(300))
       .subscribe((val) => this.changeInput.emit(val));
+  }
+
+  @HostListener('window:resize', ['$event'])
+  getScreenSize(event?) {
+    this.screenHeight = window.innerHeight;
+    this.screenWidth = window.innerWidth;
+    if (this.screenWidth < 768) {
+      this.paddingDelete = '14px 25px';
+      this.paddingSeeOffer = '14px 50px';
+      this.sizeDelete = '16px';
+      this.sizeSeeOffer = '16px';
+    } else {
+      this.paddingDelete = '7px 20px';
+      this.paddingSeeOffer = '7px 26px';
+      this.sizeDelete = '12px';
+      this.sizeSeeOffer = '12px';
+    }
   }
 
   ngOnInit() {

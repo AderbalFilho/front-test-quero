@@ -15,6 +15,8 @@ export class ButtonComponent implements OnInit, OnDestroy {
   @Input() key: string;
   @Input() label: string;
   @Input() padding: string = '14px 25px' as string;
+  @Input() size: string = '16px' as string;
+  @Input() width: string = 'auto' as string;
   @Output() changeInput = new EventEmitter();
 
   classObject: object;

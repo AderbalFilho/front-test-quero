@@ -49,6 +49,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.scholarshipsFavorites = JSON.parse(localStorage.getItem('favoriteCourses'));
+    this.scholarshipsFavorites = this.scholarshipsFavorites ? this.scholarshipsFavorites : [];
 
     this.formButtonGroup = this.fb.group({
       semester: ['all', []]

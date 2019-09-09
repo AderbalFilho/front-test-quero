@@ -1,8 +1,14 @@
 // Constants
 $secondary-blue: #007A8D
 
+$md: 768px
+$lg: 992px
+
 .btn-group
   margin: 10px 0
+  @media only screen and (min-width: $md)
+    display: flex
+    justify-content: flex-end
   button
     background-color: transparent
     border: 1px solid $secondary-blue
@@ -11,6 +17,14 @@ $secondary-blue: #007A8D
     font-weight: bold
     padding: 10px 0
     width: 100%
+    @media only screen and (min-width: $md)
+      align-items: center
+      display: flex
+      font-size: 12px
+      height: 30px
+      justify-content: center
+      padding: 0
+      width: 180px
   button:hover
     background-color: $secondary-blue
     color: #FFF
@@ -20,6 +34,14 @@ $secondary-blue: #007A8D
   .btn-group--first
     border-bottom: none
     border-radius: 5px 5px 0 0
+    @media only screen and (min-width: $md)
+      border-bottom: 1px solid $secondary-blue
+      border-radius: 5px 0 0 5px
+      border-right: none
   .btn-group--last
     border-radius: 0 0 5px 5px
     border-top: none
+    @media only screen and (min-width: $md)
+      border-left: none
+      border-radius: 0 5px 5px 0
+      border-top: 1px solid $secondary-blue
