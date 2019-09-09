@@ -40,7 +40,6 @@ export class HomeComponent implements OnInit {
   scholarshipsList: Array<Scholarship> = [];
   scholarshipsFavorites: Array<Scholarship> = [];
   semesters: Array<GroupButtonItem> = [];
-  styles = { width: '60%' };
 
   faChevronLeft = faChevronLeft;
   faPlusCircle = faPlusCircle;

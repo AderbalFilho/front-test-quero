@@ -2,6 +2,9 @@
 $text-black: #1F2D30
 $modal-overlay: #1F2D30E0 // #1F2D30 opacity 88%
 
+$md: 768px
+$lg: 992px
+
 .modal
   background-color: $modal-overlay
   left: 0
@@ -20,7 +23,9 @@ $modal-overlay: #1F2D30E0 // #1F2D30 opacity 88%
     float: right
     font-size: 28px
     font-weight: bold
-    margin: 10px 15px 
+    margin: 10px 15px
+    @media only screen and (min-width: $lg)
+      margin: 80px 15% 10px 15%
 
   .modal__close:hover,
   .modal__close:focus
@@ -38,3 +43,6 @@ $modal-overlay: #1F2D30E0 // #1F2D30 opacity 88%
     width: 100% // Full width
     -webkit-animation-duration: 0.4s
     -webkit-animation-name: animatetop
+    @media only screen and (min-width: $lg)
+      margin: 120px auto
+      width: 70%

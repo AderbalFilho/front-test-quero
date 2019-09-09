@@ -4,6 +4,9 @@ $background-grey: #FBFBFB
 $green: #0FA866
 $text-black: #1F2D30
 
+$md: 768px
+$lg: 992px
+
 hr
   background-color: $background-grey
 
@@ -18,6 +21,8 @@ hr
     flex: 1 0
     padding-right: 30px
     width: 100%
+    @media only screen and (min-width: $lg)
+      flex: 0 0 180px
     .content__logo
       align-items: center
       display: flex
@@ -32,6 +37,9 @@ hr
     flex-direction: column
     justify-content: space-between
     width: 100%
+    @media only screen and (min-width: $lg)
+      align-items: center
+      flex-direction: row
     p
       color: $text-black
       margin: 3px 0
@@ -40,8 +48,12 @@ hr
       margin: 3px 0
     .content__description-course
       margin-bottom: 10px
+      @media only screen and (min-width: $lg)
+        margin-bottom: 0
     .content__description-discount
       margin-top: 10px
+      @media only screen and (min-width: $lg)
+        margin-top: 0
     .content__description-level
       font-size: 14px
     .discount

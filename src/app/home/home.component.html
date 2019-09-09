@@ -32,41 +32,55 @@
 </app-modal>
 
 <ng-template #modalBody>
-  <h3>Adicionar bolsa</h3>
-  <p>Filtre e adicione as bolsas de seu interesse.</p>
-  <app-input-select label="SELECIONE SUA CIDADE" name="city" [options]="cities" [form]="form" key="city"
-    (changeInput)="cityChanged($event)">
-  </app-input-select>
-  <app-input-select label="SELECIONE O CURSO DE SUA PREFERÊNCIA" name="course" [options]="courses" [form]="form"
-    key="course" (changeInput)="changeList()">
-  </app-input-select>
-  <label class="label-title">COMO VOCÊ QUER ESTUDAR?</label>
-  <div class="study-modality">
-    <div class="study-modality__first">
-      <app-input-checkbox [form]="form" key="studyModalityPresential" (changeInput)="changeList()"></app-input-checkbox>
-      <label>Presencial</label>
+  <div class="modal-body">
+    <h3>Adicionar bolsa</h3>
+    <p>Filtre e adicione as bolsas de seu interesse.</p>
+    <div class="modal-filters">
+      <div class="modal-filters__select">
+        <app-input-select class="shink-desktop" label="SELECIONE SUA CIDADE" name="city" [options]="cities"
+          [form]="form" key="city" (changeInput)="cityChanged($event)">
+        </app-input-select>
+        <app-input-select class="shink-desktop course-select" label="SELECIONE O CURSO DE SUA PREFERÊNCIA" name="course"
+          [options]="courses" [form]="form" key="course" (changeInput)="changeList()">
+        </app-input-select>
+      </div>
+      <div class="modal-filters__modality">
+        <div class="modal-filters__modality-study">
+          <label class="label-title">COMO VOCÊ QUER ESTUDAR?</label>
+          <div class="study-modality">
+            <div class="study-modality__first">
+              <app-input-checkbox [form]="form" key="studyModalityPresential" (changeInput)="changeList()">
+              </app-input-checkbox>
+              <label>Presencial</label>
+            </div>
+            <div class="study-modality__last">
+              <app-input-checkbox [form]="form" key="studyModalityDistance" (changeInput)="changeList()">
+              </app-input-checkbox>
+              <label>A distância</label>
+            </div>
+          </div>
+        </div>
+        <app-input-range class="shink-desktop" label="ATÉ QUANTO PODE PAGAR?" [form]="form" key="paymentRange"
+          prefixValue="R$" [minRange]="100" [maxRange]="10000" (changeInput)="changeList()">
+        </app-input-range>
+      </div>
     </div>
-    <div class="study-modality__last">
-      <app-input-checkbox [form]="form" key="studyModalityDistance" (changeInput)="changeList()"></app-input-checkbox>
-      <label>A distância</label>
+    <div class="flex-between">
+      <span class="flex-between__result">Resultado:</span>
+      <div class="flex-between__order">
+        <span>Ordenar por</span>
+        <app-input-select class="select-order" name="order" [options]="orderArray" [form]="form" key="order"
+          [unbordered]="true" (changeInput)="changeOrderList()"></app-input-select>
+      </div>
     </div>
-  </div>
-  <app-input-range label="ATÉ QUANTO PODE PAGAR?" [form]="form" key="paymentRange" prefixValue="R$" [minRange]="100"
-    [maxRange]="10000" (changeInput)="changeList()">
-  </app-input-range>
-  <div class="flex-between">
-    <span>Resultado:</span>
-    <span>Ordenar por</span>
-  </div>
-  <app-input-select class="select-order" name="order" [styles]="styles" [options]="orderArray" [form]="form" key="order"
-    [unbordered]="true" (changeInput)="changeOrderList()"></app-input-select>
-  <app-scholarship-list [options]="scholarshipsList" [form]="form" key="scholarshipList"
-    (changeInput)="getScholarshipsList($event)"></app-scholarship-list>
-  <div class="flex-between">
-    <app-button [form]="form" key="cancel" label="Cancelar" colorClass="outline-blue"
-      (changeInput)="buttonClicked($event)"></app-button>
-    <app-button [form]="form" key="add" label="Adicionar bolsa(s)" colorClass="yellow" [(disabled)]="addDisabled"
-      (changeInput)="buttonClicked($event)">
-    </app-button>
+    <app-scholarship-list [options]="scholarshipsList" [form]="form" key="scholarshipList"
+      (changeInput)="getScholarshipsList($event)"></app-scholarship-list>
+    <div class="flex-between buttons">
+      <app-button [form]="form" key="cancel" label="Cancelar" colorClass="outline-blue"
+        (changeInput)="buttonClicked($event)"></app-button>
+      <app-button [form]="form" key="add" label="Adicionar bolsa(s)" colorClass="yellow" [(disabled)]="addDisabled"
+        (changeInput)="buttonClicked($event)">
+      </app-button>
+    </div>
   </div>
 </ng-template>
