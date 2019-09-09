@@ -46,7 +46,6 @@ export class InputRangeComponent implements OnInit, OnDestroy {
 
   modelChanged(newValue) {
     if (newValue !== null) {
-      this.inputControl.setValue(this.value);
       this.debouncer.next(newValue);
     }
   }
