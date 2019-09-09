@@ -20,3 +20,23 @@ then run:
 npm install
 npm start
 ```
+
+## Observations
+
+I've tried to follow the followings styleguides:
+
+### Angular
+
+John Papa styleguide, that is now also angular styleguide (https://angular.io/guide/styleguide).
+
+### CSS
+
+Airbnb CSS (https://github.com/airbnb/css).
+
+### Tests
+
+Unfortunatelly, I didn't had time to do them, =/.
+
+### Deadline
+
+1 week, starting from 2th september 2019 at 17:59.
