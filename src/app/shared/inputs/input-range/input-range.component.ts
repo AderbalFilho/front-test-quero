@@ -24,6 +24,7 @@ export class InputRangeComponent implements OnInit, OnDestroy {
 
   debouncer: Subject<any> = new Subject();
   inputControl: AbstractControl;
+  value: number;
 
   constructor() {
     this.debouncer
@@ -36,6 +37,7 @@ export class InputRangeComponent implements OnInit, OnDestroy {
     this.inputControl = this.form.get(this.key) as AbstractControl;
     this.maxRange = this.maxRange > this.minRange ? this.maxRange : this.minRange;
     this.inputControl.setValue(this.inputControl.value ? this.inputControl.value : this.minRange);
+    this.value = this.inputControl.value;
   }
 
   ngOnDestroy(): void {
@@ -44,6 +46,7 @@ export class InputRangeComponent implements OnInit, OnDestroy {
 
   modelChanged(newValue) {
     if (newValue !== null) {
+      this.inputControl.setValue(this.value);
       this.debouncer.next(newValue);
     }
   }
