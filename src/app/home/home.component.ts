@@ -269,7 +269,7 @@ export class HomeComponent implements OnInit {
       }
     });
     // Remove duplicated elements
-    options = options.filter((el, i, a) => i === a.indexOf(el));
+    options = options.filter((el, i, a) => i === a.indexOf(el)).sort();
     // Change the string Array to the object Array accepted in app-input-select
     return options.map(option => {
       return { value: option, label: option };
